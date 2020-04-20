@@ -42,7 +42,7 @@ Feature: Play Connect 4
 # Klassen Game 'over' >
 # after game is over there must be right information
   Scenario Outline: When game ends winner must be announced
-    When that game is finished
+    When that game is finished <won>
     Then it should tell the <result>
 
     Examples:
