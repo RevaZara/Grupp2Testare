@@ -3,6 +3,8 @@ Feature: Play Connect 4
   I want to play the game on my screen with my friends
   So that I don't need to buy it.
 
+
+#  Klassen Board constructor start >
 #  Metoden ska sätta följande egenskaper till följande värden:
 #  game till värdet från inargumentet game.
 #  matrix till en array med 6 element. Varje element ska i sin tur vara en array med 7 element, där varje element har värdet 0.
@@ -29,12 +31,25 @@ Feature: Play Connect 4
   Scenario Outline: Right player is told to make a move
     Given that game is in progress
     When the player is <player>
-    Then i should tell right <message>
+    Then it should tell right <message>
 
     Examples:
       | player |     message |
       |      1 | 'Röds tur…' |
       |      2 | 'Guls tur…' |
+
+
+# Klassen Game over >
+# after game is over there must be right information
+  Scenario Outline: When game ends winner must be announced
+    When that game is finished
+    Then it should tell the <result>
+
+    Examples:
+      | won         |              result |
+      |          1  |          'Röd vann!' |
+      |          2  |          'Gul vann!' |
+      |      'draw' | 'Det blev oavgjort!' |
 
 
 
