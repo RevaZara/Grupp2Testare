@@ -1,3 +1,7 @@
+Feature: Play Connect 4
+As a poor Connect 4 player
+I want to play the game on my screen with my friends
+So that I don't need to buy it.
   # Klassen Board 'constructor'  >
   # Metoden ska sätta följande egenskaper till följande värden:
   # game till värdet från inargumentet game.
