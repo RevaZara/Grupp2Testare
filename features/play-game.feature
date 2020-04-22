@@ -26,6 +26,18 @@ Feature: Play Connect 4
       |      1 | 'Röds tur…' |
       |      2 | 'Guls tur…' |
 
+  # Klassen Game 'tellturn' >
+  # om player har fel värdet så ska error kastas.
+  Scenario Outline: Right player is told to make a move
+    Given that a new game is in progress
+    When the player is <player> it should throw erorr <message>
+
+    Examples:
+      | player | message                 |
+      | '1'    | 'player must be 1 or 2' |
+      | '2'    | 'player must be 1 or 2' |
+      | '3'    | 'player must be 1 or 2' |
+
 
 # Klassen Game 'over' >
 # after game is over there must be right information
