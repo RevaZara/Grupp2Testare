@@ -29,5 +29,27 @@ module.exports = function () {
       expectedNumberOfDivs + ' divs were not created as children of the .board element'
     );
   });
+  this.Given(/^that the game is in progress$/, function () {
+    game = new Game();
+  })
+
+  this.When(/^the player is (\d+)$/, function (player) {
+    game.tellTurn(+player);
+  });
+
+  this.Then(/^it should tell right (<message>)$/, function (expectedMessage) {
+    let message = $$(".message").innerHTML = '';
+    expect(message).to.equal(+expectedMessage, expectedMessage + 'player must be 1 or 2');
+  });
+
+  this.Given(/^that a new game is in progress$/, function () {
+    game = new Game();
+  })
+
+  this.When(/^the player is <player> it should throw erorr <message>$/, function (player, message) {
+    game.tellTurn(player);
+    expect(message).to.throw();
+  });
+
 
 }
