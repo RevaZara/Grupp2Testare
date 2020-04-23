@@ -21,16 +21,17 @@ class Game {
 
 
     over(won) {
-        if (won === 1 || won === 2 || won === "draw") {
-            if (won === "draw") {
-                $(".message").innerHTML = "Det blev oavgjort!";
-            } else if (won === 1) {
-                $(".message").innerHTML = "Röd vann!";
+        if (won === "draw"){
+            this.infoMessage = "Det blev oavgjort!";
+        }else {
+            won = +won
+            if (won === 1) {
+                this.infoMessage = "Röd vann!";
+            } else if (won === 2){
+                this.infoMessage = "Gul vann!";
             } else {
-                $(".message").innerHTML = "Gul vann!";
+                 throw (new Error('won must be “draw”, 1 or 2'));
             }
-        } else {
-            throw (new Error('won must be “draw”, 1 or 2'));
         }
     }
 

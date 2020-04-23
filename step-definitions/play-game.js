@@ -27,7 +27,7 @@ module.exports = function() {
         expect(game.board.game).to.equal(game, 'game board has reference of game');
     });
 
-     //_________________________________
+    //_________________________________
 
     //Right player is told to make a move
     this.Given(/^that game is in progress$/, function() {
@@ -40,19 +40,33 @@ module.exports = function() {
     });
 
     this.Then(/^it should tell right "([^"]*)"$/, function(message) {
-          let value = game.infoMessage;
-          expect(value).to.equal(message);
+        let value = game.infoMessage;
+        expect(value).to.equal(message);
     });
 
     //_________________________________
 
-   //Invalid player is asked to make a move
+    //Invalid player is asked to make a move
     this.Then(/^turn using (\d+) will produce error "([^"]*)"$/, function(player, errorMessage) {
-    player = +player;
+        player = +player;
         expect(
-             () => game.tellTurn(player)
-             ).to.throw(Error, errorMessage);
+            () => game.tellTurn(player)
+        ).to.throw(Error, errorMessage);
 
+    });
+
+
+    this.When(/^that game is finished (\d+)$/, function(winner) {
+        game.over(winner)
+    });
+
+    this.When(/^that game is finished "([^"]*)"$/, function(winner) {
+        game.over(winner)
+    });
+
+    this.Then(/^it should tell the "([^"]*)"$/, function(arg1) {
+        let value = game.infoMessage;
+        expect(value).to.equal(arg1);
     });
 
 }

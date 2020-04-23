@@ -40,17 +40,16 @@ Feature: Play Connect 4
       |     0  |  "player must be 1 or 2" |
 
 
-# Klassen Game 'over' >
-# after game is over there must be right information
-#  Scenario Outline: When game ends winner must be announced
-#    When that game is finished <won>
-#    Then it should tell the <result>
-#
-#    Examples:
-#      | won         |              result |
-#      |          1  |          'Röd vann!' |
-#      |          2  |          'Gul vann!' |
-#      |      'draw' | 'Det blev oavgjort!' |
+ #Klassen Game 'over' >
+ #after game is over there must be right information
+  Scenario Outline: When game ends winner must be announced
+    Given that game is in progress
+    When that game is finished <winner>
+    Then it should tell the <result>
 
-
+    Examples:
+      |     winner  |              result |
+      |          1  |          "Röd vann!" |
+      |          2  |          "Gul vann!" |
+      |      "draw" | "Det blev oavgjort!" |
 
