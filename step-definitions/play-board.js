@@ -31,6 +31,25 @@ module.exports = function() {
 
     this.Then(/^the property playInProgress should have the value false$/, () => {
         expect(this.board.playInProgress).to.equal(false, ' playInProgress should have the value false');
-    })
+    })   
+
+ // Scenario: Start the game by calling start method
+ //   Given that we start the game
+ //   Then then new board is created
+ //   And game has its own reference inside the board
+    this.Given(/^that we start the game$/, () => {
+        this.g = new Game();
+        this.board = new Board(g);
+    });
+    this.Then(/^then new board is created$/, () => {
+        expect(this.board.game).to.equal(g, 'new board should be created');
+    });
+
+    this.Then(/^game has its own reference inside the board$/, () => {
+        // check if game has its own reference inside the board
+        expect(this.board.reference).to.equal(g, 'game has its own reference inside the board');
+    });
+
+
 
 }
