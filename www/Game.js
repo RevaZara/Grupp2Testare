@@ -10,9 +10,11 @@ class Game {
 
     tellTurn(player) {
         if (player == 1 || player == 2) {
-            $(".message").innerHTML = player === 1 ? "Röds tur…" : "Guls tur…";
+              //$(".message").innerHTML = player === 1 ? "Röds tur…" : "Guls tur…";
+              this.infoMessage = player == 1 ? "Röds tur…" : "Guls tur…";
+             $(".message").innerHTML = this.infoMessage;
         } else {
-            throw (new Error('player must be 1 or 2'));
+            throw new Error('player must be 1 or 2');
         }
     }
 
