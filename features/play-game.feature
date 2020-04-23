@@ -118,7 +118,7 @@ Scenario: receive an in-argument with the value “draw” , 1 or 2 or others
     And a button element should be added to the DOM element with the css class message . 
     And the button should have the css class again and the text "Play again".
     # Examples:
-      | in-argument |  message                           |  message 2   |
+      | in-argument |  message 1                         |  message 2   |
       |     0       |  "Error won green must be draw"    | "Play again" |
       |     5       |  "Error won yellor must be draw"   | "Play again" |
 
