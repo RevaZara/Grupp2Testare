@@ -23,7 +23,7 @@ So that I don't need to buy it.
     Then it should render 42 divs as children of the board element
 
 
-  # Klassen Board med 7 metoden
+ # Klassen Board med 7 metoden
  # 1 constructor(game)
  # 2 async makeMove(column)
  # 3 winCheck()
@@ -32,6 +32,11 @@ So that I don't need to buy it.
  # 6 addEventListener()
  # 7 removeEventListener()
  
+# Feature: The board class in Play Connect 4
+#  As a tester
+#  I hope the methods in the board calss to follow the API 
+#  so that the test works as expected.
+
 # 1 Klassen Board 'constructor(game)'  >
   # addEventListener method
   Scenario: The method should receive the game argument which should be an instance of the Game class.

@@ -72,18 +72,28 @@ Feature: Play Connect 4
  #  4 over(won)
  #  5 addEventListener()
 
+# Feature: The game class in Play Connect 4
+#  As a programer 
+#  I hope the methods in the game calss to follow the API 
+#  so that the program works as expected.
+
 # 1 Klassen Game 'constructor()'>
+ Scenario: The right methods should be called when we constructor a game.
+    When we create a new instance of game
+    Then the constructor should call addEventListener
+    And the constructor should call the method start
+
  Scenario: Start the game by calling start method
     Given that we start the game
-    Then then new board is created 
+    Then a new board is created 
 
-# 2 Klassen Board 'start()'>
+# 2 Klassen Game 'start()'>
  Scenario: The method should create a new instance of Board and send the current instance of Game to its constructor. The instance should be stored in the board property .
     Given that a new instance of Board is created
     Then then the current instance of Game should be send to its constructor
     And the instance should be stored in the board property 
 
-# 3 Klassen Board 'tellTurn(player)'>
+# 3 Klassen Game 'tellTurn(player)'>
  Scenario: receive the player argument with an integer (1 or 2) or not
     Given that a player argument is an integer (1 or 2)
     Then the method should receive the player argument
@@ -100,7 +110,7 @@ Feature: Play Connect 4
       |      1                  | "Red turn…"    |
       |      2                  | "Yellow turn…" |
 
- # 4 Klassen Board 'over(won)'>
+ # 4 Klassen Game 'over(won)'>
 Scenario: receive an in-argument with the value “draw” , 1 or 2 or others
     Given that in-argument has the value “draw” , 1 or 2
     Then the in-argument won
