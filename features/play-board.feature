@@ -16,3 +16,8 @@ So that I don't need to buy it.
     And the property matrix should have size six into seven, and zero value at each index
     And the property currentPlayer should have value 1
     And the property playInProgress should have the value false
+
+  Scenario: Start the game by calling start method
+     Given that we start the game
+     Then then new board is created
+     And game has its own reference inside the board
