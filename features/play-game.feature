@@ -61,7 +61,7 @@ Feature: Play Connect 4
     Then <player> wins will produce error <message>
 
     Examples:
-      | player |  message                 |
+      | player |  message                      |
       |     3  |  "won must be “draw”, 1 or 2" |
       |     0  |  "won must be “draw”, 1 or 2" |
 
@@ -96,8 +96,8 @@ Feature: Play Connect 4
     Then the method should change its contents to the text
 
     # Examples:
-      | the value of the player |     text |
-      |      1                  | "Red turn…" |
+      | the value of the player |     text       |
+      |      1                  | "Red turn…"    |
       |      2                  | "Yellow turn…" |
 
  # 4 Klassen Board 'over(won)'>
