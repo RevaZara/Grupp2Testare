@@ -56,6 +56,10 @@ module.exports = function() {
     });
 
 
+
+     //_________________________________
+     //When game ends winner must be announced
+
     this.When(/^that game is finished (\d+)$/, function(winner) {
         game.over(winner)
     });
@@ -68,5 +72,14 @@ module.exports = function() {
         let value = game.infoMessage;
         expect(value).to.equal(arg1);
     });
+
+ //_________________________________
+   //Invalid player wins
+   this.Then(/^(\d+) wins will produce error "([^"]*)"$/, function (player, message) {
+       player = +player;
+       expect(
+           () => game.over(player)
+       ).to.throw(Error, message);
+       });
 
 }

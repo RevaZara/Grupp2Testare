@@ -53,3 +53,14 @@ Feature: Play Connect 4
       |          2  |          "Gul vann!" |
       |      "draw" | "Det blev oavgjort!" |
 
+
+      # Klassen Game 'tellturn' >
+  # om player har fel värdet så ska error kastas.
+  Scenario Outline: Invalid player wins
+    Given that game is in progress
+    Then <player> wins will produce error <message>
+
+    Examples:
+      | player |  message                 |
+      |     3  |  "won must be “draw”, 1 or 2" |
+      |     0  |  "won must be “draw”, 1 or 2" |
