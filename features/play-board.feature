@@ -16,3 +16,7 @@ So that I don't need to buy it.
     And the property matrix should have size six into seven, and zero value at each index
     And the property currentPlayer should have value 1
     And the property playInProgress should have the value false
+# Klassen Board 'render'>
+  Scenario: A board adds 42 divs to the .board element
+    Given that a new Board is created
+    Then it should render 42 divs as children of the board element
