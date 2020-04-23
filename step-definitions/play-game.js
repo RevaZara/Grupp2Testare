@@ -8,34 +8,26 @@ module.exports = function() {
 
     //A new Game creates a new board
     this.Given(/^that a new Game is created$/, function() {
-        this.game = new Game();
+        game = new Game();
     });
 
     this.Then(/^it should create a new Board$/, function() {
-        expect(this.game.board).to.not.equal(null, 'game.board is not an instance of Board');
+        expect(game.board).to.not.equal(null, 'game.board is not an instance of Board');
     });
-
-    //_________________________________
-
-    //A board adds 42 divs to the .board element
-    //TODO:
-
 
     //_________________________________
 
     // Start the game by calling start method
     this.Given(/^that we start the game$/, function() {
-        this.game = new Game();
-        this.game.start();
+        game = new Game();
+        game.start();
     });
 
     this.Then(/^game has its own reference inside the board$/, function() {
-        expect(this.game.board.game).to.equal(this.game, 'game board has reference of game');
+        expect(game.board.game).to.equal(game, 'game board has reference of game');
     });
 
      //_________________________________
-
-
 
     //Right player is told to make a move
     this.Given(/^that game is in progress$/, function() {
@@ -49,9 +41,10 @@ module.exports = function() {
 
     this.Then(/^it should tell right "([^"]*)"$/, function(arg1) {
           let value = game.infoMessage;
-          expect(value).to.equal(arg1, 'game board has reference of game');
+          expect(value).to.equal(arg1, 'wrong info message');
     });
-     //_________________________________
+
+    //_________________________________
 
    //Invalid player is asked to make a move
     this.Then(/^turn using (\d+) will produce erorr "([^"]*)"$/, function(player, errorMessage) {

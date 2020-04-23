@@ -39,7 +39,32 @@ module.exports = function() {
 
     this.Then(/^the property playInProgress should have the value false$/, () => {
         expect(this.board.playInProgress).to.equal(false, ' playInProgress should have the value false');
-    })   
+    })
+
+
+
+    //____________________________
+
+    //   Klassen Board 'render'
+    //   Scenario: A board adds 42 divs to the .board element
+    //   Given that a new Board is created
+    //   Then it should render 42 divs as children of the board element
+
+
+    this.Then(/^that a new Board is created$/, function(callback) {
+      // Write code here that turns the phrase above into concrete actions
+      callback(null, 'pending');
+    });
+
+    this.Then(/^it should render 42 divs as children of the board element$/, function(callback) {
+      // Write code here that turns the phrase above into concrete actions
+      callback(null, 'pending');
+    });
+
+
+
+
+
 
 // // Scenario: Start the game by calling start method
 // //   Given that we start the game

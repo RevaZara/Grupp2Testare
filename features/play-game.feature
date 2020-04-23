@@ -7,12 +7,6 @@ Feature: Play Connect 4
     Given that a new Game is created
     Then it should create a new Board
 
-#  TODO
-#  Scenario: A board adds 42 divs to the .board element
-#    Given that a new Board is created
-#    Then it should render 42 divs as children of the board element
-
-
 # Klassen Game 'start' >
 # Metoden ska skicka nuvarande instans av Game till dess konstruktor.
 # Instansen ska lagras i egenskapen board.
@@ -32,7 +26,6 @@ Feature: Play Connect 4
       | player |     message |
       |      1 | "Röds tur…" |
       |      2 | "Guls tur…" |
-
 
 
   # Klassen Game 'tellturn' >
