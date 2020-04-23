@@ -29,6 +29,7 @@ module.exports = function () {
       expectedNumberOfDivs + ' divs were not created as children of the .board element'
     );
   });
+
   this.Given(/^that the game is in progress$/, function () {
     game = new Game();
   })
@@ -50,6 +51,5 @@ module.exports = function () {
     game.tellTurn(player);
     expect(message).to.throw();
   });
-
 
 }

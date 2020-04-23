@@ -3,6 +3,7 @@ Feature: Play Connect 4
   I want to play the game on my screen with my friends
   So that I don't need to buy it.
 
+ 
 
 
 # Klassen Game 'start' >
@@ -13,6 +14,10 @@ Feature: Play Connect 4
     Given that we start the game
     Then then new board is created
     And game has its own reference inside the board.
+    
+  Scenario: A new Game creates a new board
+    Given that a new Game is created
+    Then it should create a new Board
 
 # Klassen Game 'tellturn' >
 # om player har värdet 1, byta innehåll till texten “Guls tur…”.
