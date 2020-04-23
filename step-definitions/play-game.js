@@ -39,19 +39,19 @@ module.exports = function() {
 
     });
 
-    this.Then(/^it should tell right "([^"]*)"$/, function(arg1) {
+    this.Then(/^it should tell right "([^"]*)"$/, function(message) {
           let value = game.infoMessage;
-          expect(value).to.equal(arg1, 'wrong info message');
+          expect(value).to.equal(message);
     });
 
     //_________________________________
 
    //Invalid player is asked to make a move
-    this.Then(/^turn using (\d+) will produce erorr "([^"]*)"$/, function(player, errorMessage) {
+    this.Then(/^turn using (\d+) will produce error "([^"]*)"$/, function(player, errorMessage) {
     player = +player;
         expect(
-            game.tellTurn(player)
-        ).to.throw(Error, errorMessage);
+             () => game.tellTurn(player)
+             ).to.throw(Error, errorMessage);
 
     });
 

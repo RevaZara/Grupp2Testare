@@ -9,7 +9,8 @@ class Game {
 
 
     tellTurn(player) {
-        if (player == 1 || player == 2) {
+        player = +player
+        if (player === 1 || player === 2) {
               //$(".message").innerHTML = player === 1 ? "Röds tur…" : "Guls tur…";
               this.infoMessage = player == 1 ? "Röds tur…" : "Guls tur…";
              $(".message").innerHTML = this.infoMessage;
@@ -20,7 +21,7 @@ class Game {
 
 
     over(won) {
-        if (won == 1 || won == 2 || won == "draw") {
+        if (won === 1 || won === 2 || won === "draw") {
             if (won === "draw") {
                 $(".message").innerHTML = "Det blev oavgjort!";
             } else if (won === 1) {

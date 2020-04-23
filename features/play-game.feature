@@ -32,7 +32,7 @@ Feature: Play Connect 4
   # om player har fel värdet så ska error kastas.
   Scenario Outline: Invalid player is asked to make a move
     Given that game is in progress
-    Then turn using <player> will produce erorr <message>
+    Then turn using <player> will produce error <message>
 
     Examples:
       | player |  message                 |
