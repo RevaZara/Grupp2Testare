@@ -17,8 +17,15 @@ So that I don't need to buy it.
     And the property currentPlayer should have value 1
     And the property playInProgress should have the value false
 
+<<<<<<< HEAD
   
+=======
+>>>>>>> 81f1b0ff436affcbe7d333216f1b926101adce38
 # Klassen Board 'render'>
   Scenario: A board adds 42 divs to the .board element
     Given that a new Board is created
     Then it should render 42 divs as children of the board element
+<<<<<<< HEAD
+=======
+
+>>>>>>> 81f1b0ff436affcbe7d333216f1b926101adce38

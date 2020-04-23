@@ -39,69 +39,94 @@ module.exports = function() {
 
     this.Then(/^the property playInProgress should have the value false$/, () => {
         expect(this.board.playInProgress).to.equal(false, ' playInProgress should have the value false');
-    })   
+    })
 
- // Scenario: Start the game by calling start method
- //   Given that we start the game
- //   Then then new board is created
- //   And game has its own reference inside the board
-    this.Given(/^that we start the game$/, () => {
-        this.g = new Game();
-        this.board = new Board(g);
-    });
-    this.Then(/^then new board is created$/, () => {
-        expect(this.board.game).to.equal(g, 'new board should be created');
-    });
 
-    this.Then(/^game has its own reference inside the board$/, () => {
-        // check if game has its own reference inside the board
-        expect(this.board.reference).to.equal(g, 'game has its own reference inside the board');
+
+    //____________________________
+
+    //   Klassen Board 'render'
+    //   Scenario: A board adds 42 divs to the .board element
+    //   Given that a new Board is created
+    //   Then it should render 42 divs as children of the board element
+
+
+    this.Then(/^that a new Board is created$/, function(callback) {
+      // Write code here that turns the phrase above into concrete actions
+      callback(null, 'pending');
     });
 
-// Scenario: When game ends winner must be announced
-//   When that game is finished 1
-//   Then it should tell the 'Röd vann!'
-this.Given(/^When game ends winner must be announced$/, () => {
-    this.g = new Game();
-    this.board = new Board(g);
-  });
-  this.Then(/^When that game is finished 1$/, () => {
-    expect(this.board.game).to.equal(g, 'When that game is finished 1');
-  });
-  
-  this.Then(/^it should tell the 'Röd vann!'$/, () => {
-    expect(this.board.game).to.equal(g, 'it should tell "the Röd vann!"');
-  });
-  
-  // Scenario: When game ends winner must be announced
-  //   When that game is finished 2
-  //   Then it should tell the 'Gul vann!'
-  this.Given(/^When game ends winner must be announced$/, () => {
-    this.g = new Game();
-    this.board = new Board(g);
-  });
-  this.Then(/^When that game is finished 2$/, () => {
-    expect(this.board.game).to.equal(g, 'When that game is finished 2');
-  });
-  
-  this.Then(/^Then it should tell the 'Gul vann!'$/, () => {
-    expect(this.board.game).to.equal(g, 'it should tell the "Gul vann!"');
-  });
-  
-  // Scenario: When game ends winner must be announced
-  //   When that game is finished 'draw'
-  //   Then it should tell the 'Det blev oavgjort!'
-  this.Given(/^When game ends winner must be announced$/, () => {
-    this.g = new Game();
-    this.board = new Board(g);
-  });
-  this.Then(/^When that game is finished 'draw'$/, () => {
-    expect(this.board.game).to.equal(g, 'When that game is finished "draw"');
-  });
-  
-  this.Then(/^Then it should tell the 'Det blev oavgjort!'$/, () => {
-    // check if game has its own reference inside the board
-    expect(this.board.game).to.equal(g, 'it should tell the "Det blev oavgjort!"');
-  });
+    this.Then(/^it should render 42 divs as children of the board element$/, function(callback) {
+      // Write code here that turns the phrase above into concrete actions
+      callback(null, 'pending');
+    });
+
+
+
+
+
+
+// // Scenario: Start the game by calling start method
+// //   Given that we start the game
+// //   Then then new board is created
+// //   And game has its own reference inside the board
+//    this.Given(/^that we start the game$/, () => {
+//        this.g = new Game();
+//        this.board = new Board(g);
+//    });
+//    this.Then(/^then new board is created$/, () => {
+//        expect(this.board.game).to.equal(g, 'new board should be created');
+//    });
+//
+//    this.Then(/^game has its own reference inside the board$/, () => {
+//        // check if game has its own reference inside the board
+//        expect(this.board.reference).to.equal(g, 'game has its own reference inside the board');
+//    });
+//
+//// Scenario: When game ends winner must be announced
+////   When that game is finished 1
+////   Then it should tell the 'Röd vann!'
+//this.Given(/^When game ends winner must be announced$/, () => {
+//    this.g = new Game();
+//    this.board = new Board(g);
+//  });
+//  this.Then(/^When that game is finished 1$/, () => {
+//    expect(this.board.game).to.equal(g, 'When that game is finished 1');
+//  });
+//
+//  this.Then(/^it should tell the 'Röd vann!'$/, () => {
+//    expect(this.board.game).to.equal(g, 'it should tell "the Röd vann!"');
+//  });
+//
+//  // Scenario: When game ends winner must be announced
+//  //   When that game is finished 2
+//  //   Then it should tell the 'Gul vann!'
+//  this.Given(/^When game ends winner must be announced$/, () => {
+//    this.g = new Game();
+//    this.board = new Board(g);
+//  });
+//  this.Then(/^When that game is finished 2$/, () => {
+//    expect(this.board.game).to.equal(g, 'When that game is finished 2');
+//  });
+//
+//  this.Then(/^Then it should tell the 'Gul vann!'$/, () => {
+//    expect(this.board.game).to.equal(g, 'it should tell the "Gul vann!"');
+//  });
+//
+//  // Scenario: When game ends winner must be announced
+//  //   When that game is finished 'draw'
+//  //   Then it should tell the 'Det blev oavgjort!'
+//  this.Given(/^When game ends winner must be announced$/, () => {
+//    this.g = new Game();
+//    this.board = new Board(g);
+//  });
+//  this.Then(/^When that game is finished 'draw'$/, () => {
+//    expect(this.board.game).to.equal(g, 'When that game is finished "draw"');
+//  });
+//
+//  this.Then(/^Then it should tell the 'Det blev oavgjort!'$/, () => {
+//    // check if game has its own reference inside the board
+//    expect(this.board.game).to.equal(g, 'it should tell the "Det blev oavgjort!"');
+//  });
 
 }
