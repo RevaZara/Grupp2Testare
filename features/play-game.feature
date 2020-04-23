@@ -64,3 +64,76 @@ Feature: Play Connect 4
       | player |  message                 |
       |     3  |  "won must be “draw”, 1 or 2" |
       |     0  |  "won must be “draw”, 1 or 2" |
+
+       #  Klassen Game med metoden
+ #  1 constructor()
+ #  2 start()
+ #  3 tellTurn(player)
+ #  4 over(won)
+ #  5 addEventListener()
+
+# 1 Klassen Game 'constructor()'>
+ Scenario: Start the game by calling start method
+    Given that we start the game
+    Then then new board is created 
+
+# 2 Klassen Board 'start()'>
+ Scenario: The method should create a new instance of Board and send the current instance of Game to its constructor. The instance should be stored in the board property .
+    Given that a new instance of Board is created
+    Then then the current instance of Game should be send to its constructor
+    And the instance should be stored in the board property 
+
+# 3 Klassen Board 'tellTurn(player)'>
+ Scenario: receive the player argument with an integer (1 or 2) or not
+    Given that a player argument is an integer (1 or 2)
+    Then the method should receive the player argument
+    
+    Given that a player argument is not an integer (1 or 2)
+    Then the error "player must be 1 or 2" should be discarded.
+
+ Scenario: Right player is told to make a move
+    Given that the DOM element with the css class message is grabed
+    Then the method should change its contents to the text
+
+    # Examples:
+      | the value of the player |     text |
+      |      1                  | "Red turn…" |
+      |      2                  | "Yellow turn…" |
+
+ # 4 Klassen Board 'over(won)'>
+Scenario: receive an in-argument with the value “draw” , 1 or 2 or others
+    Given that in-argument has the value “draw” , 1 or 2
+    Then the in-argument won
+    And the method should grab the DOM element with the css class message and change its contents to the text
+    And a button element should be added to the DOM element with the css class message . 
+    And the button should have the css class again and the text "Play again".
+    # Examples:
+      | in-argument |  message 1     |  message 2   |
+      |     1       |  "Gold won"    | "Play again" |
+      |     2       |  "Blue won"    | "Play again" |
+
+    Given that in-argument has not the value “draw” , 1 or 2
+    Then the error won must be draw, 1 or 2' must be discarded
+    And the method should grab the DOM element with the css class message and change its contents to the text
+    And a button element should be added to the DOM element with the css class message . 
+    And the button should have the css class again and the text "Play again".
+    # Examples:
+      | in-argument |  message                           |  message 2   |
+      |     0       |  "Error won green must be draw"    | "Play again" |
+      |     5       |  "Error won yellor must be draw"   | "Play again" |
+
+
+ # 5.1 Klassen Game 'addEventListener()'>
+ Scenario: to add an event listener / function for click events to the element with the css class board in the DOM
+   Given that an event listener / function is added 
+   Then events should be clicked to the element with the css class board in the DOM 
+   And the event listener should detect after the button with the css class have been clicked again.
+    # Examples:
+     Given that a game is finished <won or fail>
+     Then it should tell a message <result>
+
+    # Examples:
+      | finished <won or fail>  | a message <result>              |
+      |          2              |          "Gold won"             |
+      |          1              |          "Blue fail"            |
+      |          3              | "Error won yellow must be draw" |
