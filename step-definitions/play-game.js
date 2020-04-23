@@ -40,7 +40,7 @@ module.exports = function() {
     });
 
     this.Then(/^it should tell right "([^"]*)"$/, function(message) {
-        let value = game.infoMessage;
+        let value = $(".message").innerHTML;
         expect(value).to.equal(message);
     });
 
@@ -69,7 +69,7 @@ module.exports = function() {
     });
 
     this.Then(/^it should tell the "([^"]*)"$/, function(arg1) {
-        let value = game.infoMessage;
+        let value = $(".message").innerHTML;
         expect(value).to.equal(arg1);
     });
 

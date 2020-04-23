@@ -11,9 +11,7 @@ class Game {
     tellTurn(player) {
         player = +player
         if (player === 1 || player === 2) {
-              //$(".message").innerHTML = player === 1 ? "Röds tur…" : "Guls tur…";
-              this.infoMessage = player == 1 ? "Röds tur…" : "Guls tur…";
-             $(".message").innerHTML = this.infoMessage;
+             $(".message").innerHTML = player == 1 ? "Röds tur…" : "Guls tur…";
         } else {
             throw new Error('player must be 1 or 2');
         }
@@ -22,13 +20,13 @@ class Game {
 
     over(won) {
         if (won === "draw"){
-            this.infoMessage = "Det blev oavgjort!";
+            $(".message").innerHTML = "Det blev oavgjort!";
         }else {
             won = +won
             if (won === 1) {
-                this.infoMessage = "Röd vann!";
+                $(".message").innerHTML = "Röd vann!";
             } else if (won === 2){
-                this.infoMessage = "Gul vann!";
+                $(".message").innerHTML = "Gul vann!";
             } else {
                  throw (new Error('won must be “draw”, 1 or 2'));
             }

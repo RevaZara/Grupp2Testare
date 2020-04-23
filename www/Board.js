@@ -63,10 +63,10 @@ function createMatrix() {
 function render() {
     for (let i = 0; i < 7; i++) {
         for (let j = 0; j < 6; j++) {
-            let div1 = document.createElement('div');
-            let div2 = document.createElement('div');
-            div1.append(div2);
-            $('.board').append(div1);
+                let div1 = D().createElement('div');
+                let div2 = D().createElement('div');
+                div1.append(div2);
+                $('.board').append(div1);
         }
     }
 }

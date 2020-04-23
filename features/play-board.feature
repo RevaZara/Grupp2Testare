@@ -17,20 +17,11 @@ So that I don't need to buy it.
     And the property currentPlayer should have value 1
     And the property playInProgress should have the value false
 
-<<<<<<< HEAD
-  
-=======
->>>>>>> 81f1b0ff436affcbe7d333216f1b926101adce38
 # Klassen Board 'render'>
   Scenario: A board adds 42 divs to the .board element
     Given that a new Board is created
     Then it should render 42 divs as children of the board element
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
->>>>>>> 81f1b0ff436affcbe7d333216f1b926101adce38
-=======
 
  # Klassen Board med 7 metoden
  # 1 constructor(game)
@@ -181,4 +172,3 @@ Scenario: The method should remove the event listener stored in the listener pro
 Scenario: The method should use the $ auxiliary method to obtain the correct elements in the DOM.
    Given that an event listener is used
    Then it should obtain the correct elements in the DOM
->>>>>>> 2deece93f6a5dfeeefc3446920bf7d2cb79a70fb
