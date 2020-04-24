@@ -6,6 +6,7 @@ class Board {
         this.playInProgress = false;
         this.addEventListener();
         this.render();
+        this.game.tellTurn(this.currentPlayer);
     }
     async makeMove(column) {
 
