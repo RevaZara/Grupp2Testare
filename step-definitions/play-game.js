@@ -3,8 +3,10 @@
 require('./_include-all')();
 
 module.exports = function() {
-
+    
     let game;
+    let addEventListenerWasCalled = false;
+    let startWasCalled = false;
 
     //A new Game creates a new board
     this.Given(/^that a new Game is created$/, function() {
@@ -16,6 +18,48 @@ module.exports = function() {
     });
 
     //_________________________________
+//    klassen Game 'constroctor'
+    //Scenario: The right methods should be called when constructing a new Game
+    //When we create a new instance of Game
+    //Then the constructor should call the method addEventListener
+    //And the constructor should call the method start
+
+
+    
+
+    class TestGame extends Game {
+
+        // until we have writte any methods here
+        // TestGame will work exactly as game
+
+        // but we can override whatever methods we want
+        // in order to be able to test things
+        addEventListener() {
+        
+            addEventListenerWasCalled = true;
+        }
+
+        start() {
+            startWasCalled = true;
+        }
+
+    }
+
+    this.When(/^we create a new instance of Game$/, function () {
+        new TestGame();
+    });
+
+    this.Then(/^the constructor should call the method addEventListener$/, function () {
+        expect(addEventListenerWasCalled,
+            'The method addEventListener was not called by the constructor in Game'
+        ).to.be.true;
+    });
+
+    this.Then(/^the constructor should call the method start$/, function () {
+        expect(startWasCalled,
+            'The method start was not called by the constructor in Game'
+        ).to.be.true;
+    });
 
     // Start the game by calling start method
     this.Given(/^that we start the game$/, function() {
