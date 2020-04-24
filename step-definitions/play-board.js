@@ -5,8 +5,10 @@ require('./_include-all')();
 module.exports = function() {
     let board;
     let game;
-
-// Scenario: Properties should be set according to the api-specifications
+    
+    
+//    klassen Borad 'constroctor'
+//    Scenario: Properties should be set according to the api-specifications
 //    Given that we create a new Board
 //    Then property game should get value from the constructor
 //    And the property matrix should have size six into seven, and zero value at each index
@@ -41,8 +43,7 @@ module.exports = function() {
         expect(board.playInProgress).to.equal(false, ' playInProgress should have the value false');
     })
 
-
-
+    
     //____________________________
 
     //   Klassen Board 'render'
@@ -51,15 +52,19 @@ module.exports = function() {
     //   Then it should render 42 divs as children of the board element
 
 
-    this.Then(/^that a new Board is created$/, function(callback) {
-      // Write code here that turns the phrase above into concrete actions
-      callback(null, 'pending');
+    this.Given(/^that a new Board is created$/, function () {
+        // Empty the contents of .board
+        $$('.board').innerHTML = '';
+        // create a Game, it will create a Board
+        new Game();
     });
 
-    this.Then(/^it should render 42 divs as children of the board element$/, function(callback) {
-      // Write code here that turns the phrase above into concrete actions
-      callback(null, 'pending');
+    this.Then(/^it should render (\d+) divs as children of the board element$/, function (expectedNumberOfDivs) {
+        let divsCreated = $$('.board > div').length;
+        expect(divsCreated).to.equal(+expectedNumberOfDivs,
+            expectedNumberOfDivs + ' divs were not created as children of the .board element'
+        );
     });
 
-
+    
 }
