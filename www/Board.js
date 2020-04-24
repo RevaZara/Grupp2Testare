@@ -62,7 +62,6 @@ class Board {
                 }else if(this.matrix[i][j] === 2) {
                     div1.className = "yellow";
                 }
-                div1.className = "yellow";
                 div1.append(div2);
                 $('.board').append(div1);
             }
