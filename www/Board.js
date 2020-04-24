@@ -55,8 +55,8 @@ class Board {
     render() {
         for (let i = 0; i < this.matrix.length; i++) {
             for (let j = 0; j < this.matrix[i].length; j++) {
-                let div1 = $$$('div');
-                let div2 = $$$('div');
+                let div1 = document.createElement('div');
+                let div2 = document.createElement('div');
 
                 if(this.matrix[i][j] === 1) {
                     div1.className = "red";
