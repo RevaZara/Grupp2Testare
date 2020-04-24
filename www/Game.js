@@ -1,6 +1,6 @@
 class Game {
     constructor() {
-        this.addEventListeners();
+        this.addEventListener();
         this.start();
     }
     start() {
@@ -34,8 +34,8 @@ class Game {
     }
 
 
-    addEventListeners() {
-        $('.message').addEventListener('click', e => {
+    addEventListener() {
+         $('.message').addEventListener('click', e => {
            if (e.target.closest('.again')) {
              this.start();
           }
