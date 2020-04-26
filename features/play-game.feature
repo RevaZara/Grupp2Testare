@@ -71,6 +71,13 @@ Feature: Play Connect 4
       |     3  |  "won must be “draw”, 1 or 2" |
       |     0  |  "won must be “draw”, 1 or 2" |
 
+
+ #klassen  addEventlistener 
+
+  Scenario: A bottom with css class again is clicked.
+  Given that a user clicked in bottom with class again.
+  Then A method start should be colled.
+
        #  Klassen Game med metoden
  #  1 constructor()
  #  2 start()

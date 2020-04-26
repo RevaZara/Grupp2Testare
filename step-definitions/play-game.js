@@ -29,11 +29,7 @@ module.exports = function() {
 
     class TestGame extends Game {
 
-        // until we have writte any methods here
-        // TestGame will work exactly as game
-
-        // but we can override whatever methods we want
-        // in order to be able to test things
+       
         addEventListener() {
         
             addEventListenerWasCalled = true;
@@ -125,5 +121,18 @@ module.exports = function() {
            () => game.over(player)
        ).to.throw(Error, message);
        });
+
+    //klassen  addEventlistener 
+
+   // Scenario: A bottom with css class again is clicked.
+   // Given that a user clicked in bottom with class again.
+  //Then A method start should be colled. 
+    this.Given(/^that a user clicked in bottom with class again\.$/, function () {
+        $('.message').click();
+    });
+    this.Then(/^A method start should be colled\.$/, function () {
+        expect(game.board).to.not.equal(null, 'game.board is not an instance of Board');
+    
+    });
 
 }
