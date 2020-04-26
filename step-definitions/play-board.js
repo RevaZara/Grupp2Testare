@@ -54,7 +54,7 @@ module.exports = function() {
 
     this.Given(/^that a new Board is created$/, function () {
         // Empty the contents of .board
-        $$('.board').innerHTML = '';
+        $('.board').innerHTML = '';
         // create a Game, it will create a Board
         new Game();
     });
