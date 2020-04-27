@@ -107,10 +107,7 @@ So that I don't need to buy it.
 #     Given that player 2 has a tag on a position
 #     Then the div element corresponding to the position should get the css class red 
 
-# # 4.3 Klassen Board 'render(3)'>
-#   Scenario: A board adds 42 divs to the .board element
-#     Given that a new Board is created
-#     Then it should render 42 divs as children of the board element
+
 
 # # 4.4 Klassen Board 'render(4)'>
 #   Scenario:Each of the 42 div elements described above should in turn contain a div element. This should be empty.
