@@ -8,6 +8,12 @@ class Board {
         this.render();
         this.game.tellTurn(this.currentPlayer);
     }
+    
+
+    start() {
+        this.board = new Board(this);
+    }
+
     async makeMove(column) {
 
         if (column < 0 || column > 6)
@@ -23,8 +29,23 @@ class Board {
 
 
     }
-    winCheck() {}
+
+    winCheck() {
+        player = +player
+        
+        if (player.win, player === 1 || player === 2) {
+             $(".message").innerHTML = player == 1 || player === 2? "player 1 wins…" : "player 2 wins…";
+             
+             if (win = "draw") {
+                $(".value").innerHTML = "draw";   
+             }
+        } else {
+            throw new Value ('false');
+        }
+    }
+
     markWin(combo) {}
+    
     addEventListener() {
         this.listener = event => {
             let $solt = event.target.closest('.board > div');
@@ -68,7 +89,7 @@ class Board {
             }
         }
     }
-}
+}    
 
 function checkIfColumFull(column, matrix) {
     let columnValues = [];
@@ -84,3 +105,4 @@ function checkIfColumFull(column, matrix) {
 if (typeof global !== 'undefined') {
     global.Board = Board
 };
+
