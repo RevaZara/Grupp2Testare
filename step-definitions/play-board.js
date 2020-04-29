@@ -65,13 +65,13 @@ module.exports = function() {
             expectedNumberOfDivs + ' divs were not created as children of the .board element'
         );
     });
-    // // addeventlensner 
-    // this.Given(/^that a user clicked in element with class board$/, function () {
-    //     $('.board > div:nth-child(2)').click();
-    // });
-    // this.Then(/^A method makeMove should be colled with column nummber$/, function () {
-    //     expect(board.makeMove(0)).to.not.equal(false, 'board.makeMove() is not with correct column nummber');
-    // }); 
+    // addeventlensner 
+    this.Given(/^that a user clicked in element with class board$/, function () {
+        $('.board > div:nth-child(2)').click();
+    });
+    this.Then(/^A method makeMove should be colled with column nummber$/, function () {
+        expect(board.makeMove(0)).to.not.equal(false, 'board.makeMove() is not with correct column nummber');
+    }); 
     //
     this.Given(/^That addeventlistener is called$/, function () {
         board.addEventListener();
