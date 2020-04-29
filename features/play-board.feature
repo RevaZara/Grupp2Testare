@@ -76,22 +76,22 @@ Scenario: Check if event listener is removed.
      And it should set playInProgress to the value false
 
 # # 2 Klassen Board 'async makeMove(column)'>
-  Scenario: The async method should receive the column argument, which should be an integer between 0 and 6. If this is not the case, the error message "column must be an integer between 0 and 6" should be thrown.
-    Given that the play in progress property is true
-    Then place the tray temporarily at the top of the column
-     And call the render
-     And remove the tray if it can fall further down
-     And call the asynchronous sleep aid method to pause for 50 ms
-     And if possible: move the tray one step down in the column and repeat from step 3
-     And call the winCheck and if it returns something truthy 
-   And Call the removeEventListener
-   And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument
-   And Call the game's method over using the winner property from winCheck's return value as an argument
-   And Return true
-     And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
-     And call the game's method tell turn property with the currentPlayer property as an argument
-     And set the playInProgress property to false
-     And turn true
+  # Scenario: The async method should receive the column argument, which should be an integer between 0 and 6. If this is not the case, the error message "column must be an integer between 0 and 6" should be thrown.
+  #   Given that the play in progress property is true
+  #   Then place the tray temporarily at the top of the column
+  #    And call the render
+  #    And remove the tray if it can fall further down
+  #    And call the asynchronous sleep aid method to pause for 50 ms
+  #    And if possible: move the tray one step down in the column and repeat from step 3
+  #    And call the winCheck and if it returns something truthy 
+  #  And Call the removeEventListener
+  #  And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument
+  #  And Call the game's method over using the winner property from winCheck's return value as an argument
+  #  And Return true
+  #    And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
+  #    And call the game's method tell turn property with the currentPlayer property as an argument
+  #    And set the playInProgress property to false
+  #    And turn true
 
 # # 3.1 Klassen Board 'winCheck(1)'>
 # Scenario: Have to look at the whole board and check if anyone has won or whether it has been a draw.
