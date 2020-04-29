@@ -7,6 +7,7 @@ class Board {
         this.addEventListener();
         this.render();
         this.game.tellTurn(this.currentPlayer);
+        this.listener;
     }
     
 
@@ -26,8 +27,6 @@ class Board {
             return false;
         console.log(column);
         // this.playInProgress = true;
-
-
     }
 
     winCheck() {
@@ -57,9 +56,13 @@ class Board {
             let column = index % 7;
             this.makeMove(column);
         }
+        
         $('.board').addEventListener('click', this.listener);
     }
-    removeEventListener() {}
+
+    removeEventListener() {
+        $('.board').removeEventListener('click', this.listener);
+    }
 
     createMatrix() {
         let arr = [];
