@@ -87,9 +87,9 @@ Scenario: Check if event listener is removed.
    And Call the removeEventListener
    And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument
    And Call the game's method over using the winner property from winCheck's return value as an argument
-   And return true
+   And Return true
      And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
-     And call the game 's method tellTurn property with the currentPlayer property as an argument
+     And call the game's method tell turn property with the currentPlayer property as an argument
      And set the playInProgress property to false
      And turn true
 

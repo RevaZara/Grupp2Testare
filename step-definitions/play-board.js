@@ -186,9 +186,7 @@ module.exports = function() {
     }
 
     this.Given(/^that the play in progress property is true$/, function () {
-    new TestBoard();
-        board = new Board();
-        board.start();
+      new TestBoard();
     });
 
     this.Then(/^place the tray temporarily at the top of the column$/, function () {
@@ -255,7 +253,7 @@ module.exports = function() {
         new set(1);
     });
 
-    this.Then(/^call the game 's method tellTurn property with the currentPlayer property as an argument$/, function () {
+    this.Then(/^call the game's method tell turn property with the currentPlayer property as an argument$/, function () {
         expect(startWasCalled,
             'The method start was called by the constructor in Board'
         ).to.be.true;
