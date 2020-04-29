@@ -74,18 +74,17 @@ module.exports = function() {
     }); 
     //
     this.Given(/^That addeventlistener is called$/, function () {
-        board.addEventListener();
-        
+        board.addEventListener(); 
     });
-
-    this.Then(/^the method should be saved as a property named lisener$/, function () {
-        $('.board > div:nth-child(3)').click();
+    this.Then(/^The event should be saved as a property named listener$/, function () {
+        expect(board.listener).to.not.equal(null, 'listener should have value');  
     });
-
-    this.Then(/^the property can be removed$/, function () {
-        expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should be removed');
+    this.Then(/^Call method removEventListener$/, function () {
+        board.removeEventListener();
     });
-
+    this.Then(/^Check that the property listener have null value$/, function () {
+        expect(board.listener).to.equal(null, 'listener should not have value');  
+    });
 
    // removEventListener
     this.Given(/^That the method removEventListener is called$/, function () {
