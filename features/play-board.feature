@@ -24,10 +24,10 @@ So that I don't need to buy it.
     Given that a new Board is created
     Then it should render 42 divs as children of the board element
 
-# klass board addEventListener ()
-  Scenario: A element with css class board is clicked.
-    Given that a user clicked in element with class board
-    Then A method makeMove should be colled with column nummber
+# # klass board addEventListener ()
+#   Scenario: A element with css class board is clicked.
+#     Given that a user clicked in element with class board
+#     Then A method makeMove should be colled with column nummber
     
   Scenario: Check that a property listener can be removed at a later time
     Given That addeventlistener is called
