@@ -65,6 +65,37 @@ module.exports = function() {
             expectedNumberOfDivs + ' divs were not created as children of the .board element'
         );
     });
+    // // addeventlensner 
+    // this.Given(/^that a user clicked in element with class board$/, function () {
+    //     $('.board > div:nth-child(2)').click();
+    // });
+    // this.Then(/^A method makeMove should be colled with column nummber$/, function () {
+    //     expect(board.makeMove(0)).to.not.equal(false, 'board.makeMove() is not with correct column nummber');
+    // }); 
+    // //
+    // this.Given(/^That addeventlistener is called$/, function () {
+    //     board.addEventListener();
+        
+    // });
 
-    
+    // this.Then(/^the method should be saved as a property named lisener$/, function () {
+    //     $('.board > div:nth-child(3)').click();
+    // });
+
+    // this.Then(/^the property can be removed$/, function () {
+    //     expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should be removed');
+    // });
+
+
+   // removEventListener
+    this.Given(/^That the method removEventListener is called$/, function () {
+        board.removeEventListener();
+    });
+    this.Then(/^Try to click on element with css class board$/, function () {
+        $('.board > div:nth-child(3)').click();
+    });
+    this.Then(/^Funck makeMove should not be called$/, function () {
+        expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should not be called');
+    });
+   
 }
