@@ -76,7 +76,7 @@ Feature: Play Connect 4
 
   Scenario: A bottom with css class again is clicked.
   Given that a user clicked in bottom with class again.
-  Then A method start should be colled.
+    Then A method start should be called.
 
        #  Klassen Game med metoden
  #  1 constructor()
