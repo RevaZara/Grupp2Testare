@@ -88,14 +88,14 @@ module.exports = function() {
 
 
    // removEventListener
-    // this.Given(/^That the method removEventListener is called$/, function () {
-    //     board.removeEventListener();
-    // });
-    // this.Then(/^Try to click on element with css class board$/, function () {
-    //     $('.board > div:nth-child(3)').click();
-    // });
-    // this.Then(/^Funck makeMove should not be called$/, function () {
-    //     expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should not be called');
-    // });
+    this.Given(/^That the method removEventListener is called$/, function () {
+        board.removeEventListener();
+    });
+    this.Then(/^Try to click on element with css class board$/, function () {
+        $('.board > div:nth-child(3)').click();
+    });
+    this.Then(/^Funck makeMove should not be called$/, function () {
+        expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should not be called');
+    });
    
 }
