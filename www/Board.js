@@ -56,6 +56,11 @@ class Board {
                 //d) Return true
         //If possible: move the tray one step down in the column and repeat from step 3.
         //Set the currentPlayer property to 2 if it is 1 and to 1 if it is 2.
+        if (this.currentPlayer === 1){
+            this.currentPlayer = 2;
+        }else   {
+           this.currentPlayer = 1;
+        }
 
         //Call the game 's method tellTurn property with the currentPlayer property as an argument.
 
