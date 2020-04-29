@@ -130,7 +130,7 @@ module.exports = function() {
     this.Given(/^that a user clicked in bottom with class again\.$/, function () {
         $('.message').click();
     });
-    this.Then(/^A method start should be colled\.$/, function () {
+    this.Then(/^A method start should be called\.$/, function () {
         expect(game.board).to.not.equal(null, 'game.board is not an instance of Board');
     
     });

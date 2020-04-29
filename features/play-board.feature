@@ -56,43 +56,42 @@ Scenario: Check if event listener is removed.
 # #  so that the test works as expected.
 
 # # 1 Klassen Board 'constructor(game)'  >
-#   # addEventListener method
-#   Scenario: The method should receive the game argument which should be an instance of the Game class.
-#    Given that a game argument is an instance of the Game class
-#    Then the method should receive the game argument  
+#   # 1.1 addEventListener method    
+  Scenario: The method should receive the game argument which should be an instance of the Game class.
+    Given that a game argument is an instance of the Game class
+    Then the method should receive the game argument  
 
-#   # render method
-#   Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
-#    Given that a game argument is not an instance of the Game class
-#    Then the error message "game must be an instance of Game" should be discarded  
+#   # 1.2 render method
+   Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
+    Given that a game argument is not an instance of the Game class
+    Then the error message "game must be an instance of Game" should be discarded  
 
-#   # game 's method tellTurn
-#   Scenario: Properties should be set according to the api-specifications
-#     Given that a new game is created
-#     Then it should set the game with the value from the game argument
-#     And it should set matrix into an array of 6 elements
-#     And each element should in turn be an array of 7 elements, each element having a value of 0
-#     And it should set currentPlayer to value 1
-#     And it should set playInProgress to the value false
+#   # 1.3 game's method tellTurn
+   Scenario: Properties should be set according to the api-specifications
+     Given that a new game is created
+     Then it should set the game with the value from the game argument
+     And it should set matrix into an array of 6 elements
+     And each element should in turn be an array of 7 elements, each element having a value of 0
+     And it should set currentPlayer to value 1
+     And it should set playInProgress to the value false
 
 # # 2 Klassen Board 'async makeMove(column)'>
-#  Scenario: The async method should receive the column argument, which should be an integer between 0 and 6. If this is not the case, the error message "column must be an integer between 0 and 6" should be thrown.
-# The method should return null if the playInProgress property is true. The method should return false if the move cannot be done because the selected column is full.
-#     Given that the playInProgress property is true
-#     Then place the tray temporarily at the top of the column
-#     And call the render
-#     And remove the tray if it can fall further down
-#     And call the asynchronous sleep aid method to pause for 50 ms
-#     And if possible: move the tray one step down in the column and repeat from step 3
-#     And call the winCheck and if it returns something truthy 
-#   And Call the removeEventListener
-#   And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument.
-#   And Call the game 's method over using the winner property from winCheck's return value as an argument
-#   And Return true
-#     And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
-#     And call the game 's method tellTurn property with the currentPlayer property as an argument
-#     And set the playInProgress property to false
-#     And return true
+  Scenario: The async method should receive the column argument, which should be an integer between 0 and 6. If this is not the case, the error message "column must be an integer between 0 and 6" should be thrown.
+    Given that the play in progress property is true
+    Then place the tray temporarily at the top of the column
+     And call the render
+     And remove the tray if it can fall further down
+     And call the asynchronous sleep aid method to pause for 50 ms
+     And if possible: move the tray one step down in the column and repeat from step 3
+     And call the winCheck and if it returns something truthy 
+   And Call the removeEventListener
+   And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument
+   And Call the game's method over using the winner property from winCheck's return value as an argument
+   And return true
+     And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
+     And call the game 's method tellTurn property with the currentPlayer property as an argument
+     And set the playInProgress property to false
+     And turn true
 
 # # 3.1 Klassen Board 'winCheck(1)'>
 # Scenario: Have to look at the whole board and check if anyone has won or whether it has been a draw.
