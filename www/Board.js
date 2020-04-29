@@ -83,6 +83,19 @@ class Board {
               throw new Value ('false');
           }
       }*/
+      
+      winCheck(){
+      //Have to look at the whole board and check if anyone has won or whether it has been a draw.
+
+      //If someone has won, the method should return an item.
+      //The object must have the properties of the winner set to the winner (1 or 2),
+      //and the combo - an array of 4 arrays, where each inner array is a position on the board [row number, column number].
+
+      //If a draw has been made, the method should return an object with the winner property set to the string "draw" .
+
+      //If no one has won and no draw has been made, the method should return the value false .
+
+      }
 
     markWin(combo) {}
 
