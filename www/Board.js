@@ -10,7 +10,6 @@ class Board {
         //this.listener;
     }
 
-
     start() {
         this.board = new Board(this);
     }
@@ -20,7 +19,6 @@ class Board {
         console.log("make-move" + column)
         if (column < 0 || column > 6)
             throw new Error('column must be an integer between 0 and 6');
-
 
         if (this.playInProgress === true)
             return null;
@@ -37,29 +35,37 @@ class Board {
         //Call the render
         this.render();
         //Call the asynchronous sleep aid method to pause for 50 ms.
-        await sleep(100); // not working
+        await sleep(100);
 
         //Remove the tray if it can fall further down.
-         for (let i = 1; i < 6; i++) {
-               if (this.matrix[i][column] === 0) {
-                    this.matrix[i-1][column] = 0;
-                    this.matrix[i][column] = this.currentPlayer;
-                    this.render();
-                    await sleep(100);
-                }
-         }
-        //this.winCheck();
-                //Call the winCheck and if it returns something truthy:
-                //a) Call the removeEventListener
-                //b) If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument.
-                //c) Call the game 's method over using the winner property from winCheck's return value as an argument.
-                //d) Return true
+        for (let i = 1; i < 6; i++) {
+            if (this.matrix[i][column] === 0) {
+                this.matrix[i - 1][column] = 0;
+                this.matrix[i][column] = this.currentPlayer;
+                this.render();
+                await sleep(100);
+            }
+        }
+
+        let checkResult = this.winCheck();
+        if (checkResult !== false) {
+            //a) Call the removeEventListener
+            this.removeEventListener();
+            //c) Call the game 's method over using the winner property from winCheck's return value as an argument.
+            this.game.over(checkResult.winner);
+            //b) If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument.
+            if (checkResult.winner !== "draw") {
+                this.markWin(checkResult.combo);
+            }
+            //d) Return true
+            return true;
+        }
         //If possible: move the tray one step down in the column and repeat from step 3.
         //Set the currentPlayer property to 2 if it is 1 and to 1 if it is 2.
-        if (this.currentPlayer === 1){
+        if (this.currentPlayer === 1) {
             this.currentPlayer = 2;
-        }else   {
-           this.currentPlayer = 1;
+        } else {
+            this.currentPlayer = 1;
         }
 
         //Call the game 's method tellTurn property with the currentPlayer property as an argument.
@@ -69,35 +75,77 @@ class Board {
         //Return true .
         return true;
     }
+    winCheck() {
+        let winOffset = [
+            [
+                [0, 0],
+                [0, 1],
+                [0, 2],
+                [0, 3]
+            ], //horizontal
+            [
+                [0, 0],
+                [1, 0],
+                [2, 0],
+                [3, 0]
+            ], //vertical
+            [
+                [0, 0],
+                [1, 1],
+                [2, 2],
+                [3, 3]
+            ], //diagonal 1
+            [
+                [0, 0],
+                [-1, -1],
+                [-2, -2],
+                [-3, -3]
+            ], //diagonal 2
 
-    /*  winCheck() {
-          player = +player
-          
-          if (player.win, player === 1 || player === 2) {
-               $(".message").innerHTML = player == 1 || player === 2? "player 1 wins…" : "player 2 wins…";
-               
-               if (win = "draw") {
-                  $(".value").innerHTML = "draw";   
-               }
-          } else {
-              throw new Value ('false');
-          }
-      }*/
-      
-      winCheck(){
-      //Have to look at the whole board and check if anyone has won or whether it has been a draw.
+        ];
+        let myObject = {}
+        for (let row = 0; row < 6; row++) {
+            for (let col = 0; col < 7; col++) {
+                for (let w = 0; w < winOffset.length; w++) {
 
-      //If someone has won, the method should return an item.
-      //The object must have the properties of the winner set to the winner (1 or 2),
-      //and the combo - an array of 4 arrays, where each inner array is a position on the board [row number, column number].
+                    //console.log("checking at " + row + " , " + col);
+                    //                    if (w === 0) {
+                    //                        console.log("checking horizontal |");
+                    //                    } else if (w === 1) {
+                    //                        console.log("checking vertical --");
+                    //                    } else if (w === 2) {
+                    //                        console.log("checking diagonal \\");
+                    //                    } else {
+                    //                        console.log("checking diagonal /");
+                    //                    }
+                    let slots = winOffset[w].map(([r, c]) => this.matrix[row + r] && this.matrix[row + r][col + c]).join('');
+                    //  console.log(slots);
+                    if (slots === '1111') {
+                        myObject['winner'] = 1;
+                        myObject['combo'] = winOffset[w].map(([r, c]) => [row + r, col + c]);
+                        return myObject;
+                    } else if (slots === '2222') {
+                        myObject['winner'] = 2;
+                        myObject['combo'] = winOffset[w].map(([r, c]) => [row + r, col + c]);
+                        return myObject;
+                    }
+                }
+            }
 
-      //If a draw has been made, the method should return an object with the winner property set to the string "draw" .
+        }
+        if (!this.emptyAvailable()) {
+            myObject['winner'] = "draw";
+            return myObject;
+        }
+        return false;
+    }
 
-      //If no one has won and no draw has been made, the method should return the value false .
-
-      }
-
-    markWin(combo) {}
+    markWin(combo) {
+        for (let i of combo) {
+          this.matrix[i[0]][i[1]] = 3;
+        }
+        this.render();
+    }
 
     addEventListener() {
         this.listener = event => {
@@ -117,7 +165,19 @@ class Board {
     removeEventListener() {
         $('.board').removeEventListener('click', this.listener);
     }
+    emptyAvailable() {
 
+        for (let i = 0; i < 6; i++) {
+
+            for (let j = 0; j < 7; j++) {
+                if (this.matrix[i][j] === 0) {
+                    return true
+                }
+            }
+
+        }
+        return false;
+    }
     createMatrix() {
         let arr = [];
         for (let i = 0; i < 6; i++) {
@@ -141,6 +201,8 @@ class Board {
                     div1.className = "red";
                 } else if (this.matrix[i][j] === 2) {
                     div1.className = "yellow";
+                } else if (this.matrix[i][j] === 3) {
+                    div1.className = "win";
                 }
 
                 $('.board').append(div1);
@@ -150,10 +212,7 @@ class Board {
     checkIfColumnFull(column, matrix) {
         return matrix[0][column] !== 0;
     }
-
 }
-
-
 
 
 // make it possible to test on backend
