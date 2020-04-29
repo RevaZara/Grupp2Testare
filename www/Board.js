@@ -63,9 +63,11 @@ class Board {
         }
 
         //Call the game 's method tellTurn property with the currentPlayer property as an argument.
-
+        this.game.tellTurn(this.currentPlayer);
         //Set the playInProgress property to false .
+        this.playInProgress = false;
         //Return true .
+        return true;
     }
 
     /*  winCheck() {
