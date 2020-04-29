@@ -40,12 +40,14 @@ class Board {
         await sleep(100); // not working
 
         //Remove the tray if it can fall further down.
-        if (this.matrix[1][column] === 0) {
-            this.matrix[0][column] = 0;
-            this.matrix[1][column] = this.currentPlayer;
-            this.render();
-            await sleep(100);
-        }
+         for (let i = 1; i < 6; i++) {
+               if (this.matrix[i][column] === 0) {
+                    this.matrix[i-1][column] = 0;
+                    this.matrix[i][column] = this.currentPlayer;
+                    this.render();
+                    await sleep(100);
+                }
+         }
         //this.winCheck();
                 //Call the winCheck and if it returns something truthy:
                 //a) Call the removeEventListener
