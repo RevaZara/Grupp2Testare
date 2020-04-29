@@ -29,19 +29,7 @@ class Board {
         // this.playInProgress = true;
     }
 
-    winCheck() {
-        player = +player
-        
-        if (player.win, player === 1 || player === 2) {
-             $(".message").innerHTML = player == 1 || player === 2? "player 1 wins…" : "player 2 wins…";
-             
-             if (win = "draw") {
-                $(".value").innerHTML = "draw";   
-             }
-        } else {
-            throw new Value ('false');
-        }
-    }
+    winCheck() {}
 
     markWin(combo) {}
     
