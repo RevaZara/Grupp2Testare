@@ -164,6 +164,7 @@ class Board {
 
     removeEventListener() {
         $('.board').removeEventListener('click', this.listener);
+        this.listener = null;
     }
     emptyAvailable() {
 
