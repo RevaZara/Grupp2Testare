@@ -24,17 +24,18 @@ So that I don't need to buy it.
     Given that a new Board is created
     Then it should render 42 divs as children of the board element
 
-# klass board addEventListener ()
+# klass board addEventListener()
   Scenario: A element with css class board is clicked.
     Given that a user clicked in element with class board
     Then A method makeMove should be colled with column nummber
     
   Scenario: Check that a property listener can be removed at a later time
     Given That addeventlistener is called
-    Then the method should be saved as a property named lisener 
-    And the property can be removed
+    Then The event should be saved as a property named listener 
+    And Call method removEventListener  
+    And Check that the property listener have null value
 
-# klass board removEventListener ()
+# klass board removEventListener()
 Scenario: Check if event listener is removed.
   Given That the method removEventListener is called
   Then Try to click on element with css class board  
@@ -76,6 +77,7 @@ Scenario: Check if event listener is removed.
      And it should set playInProgress to the value false
 
 # # 2 Klassen Board 'async makeMove(column)'>
+<<<<<<< HEAD
   Scenario: The async method should receive the column argument, which should be an integer between 0 and 6. If this is not the case, the error message "column must be an integer between 0 and 6" should be thrown.
     Given that the playInProgress property is true
     Then place the tray temporarily at the top of the column
@@ -88,10 +90,28 @@ Scenario: Check if event listener is removed.
    And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument
    And Call the game's method over using the winner property from winCheck's return value as an argument
    And Return true
-#     And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
+     And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
      And call the game's method tellTurn property with the currentPlayer property as an argument
      And set the playInProgress property to false
      And turn true
+=======
+  # Scenario: The async method should receive the column argument, which should be an integer between 0 and 6. If this is not the case, the error message "column must be an integer between 0 and 6" should be thrown.
+  #   Given that the play in progress property is true
+  #   Then place the tray temporarily at the top of the column
+  #    And call the render
+  #    And remove the tray if it can fall further down
+  #    And call the asynchronous sleep aid method to pause for 50 ms
+  #    And if possible: move the tray one step down in the column and repeat from step 3
+  #    And call the winCheck and if it returns something truthy 
+  #  And Call the removeEventListener
+  #  And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument
+  #  And Call the game's method over using the winner property from winCheck's return value as an argument
+  #  And Return true
+  #    And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
+  #    And call the game's method tell turn property with the currentPlayer property as an argument
+  #    And set the playInProgress property to false
+  #    And turn true
+>>>>>>> 070b6bc172009da3f6f9ace9d74258b9bb1fe781
 
 # # 3.1 Klassen Board 'winCheck(1)'>
 # Scenario: Have to look at the whole board and check if anyone has won or whether it has been a draw.

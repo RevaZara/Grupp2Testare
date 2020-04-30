@@ -132,7 +132,7 @@ module.exports = function() {
     });
     this.Then(/^A method start should be called\.$/, function () {
         expect(game.board).to.not.equal(null, 'game.board is not an instance of Board');
-    
+
     });
 
 }

@@ -97,9 +97,9 @@ class Board {
             ], //diagonal 1
             [
                 [0, 0],
-                [-1, -1],
-                [-2, -2],
-                [-3, -3]
+                [1, -1],
+                [2, -2],
+                [3, -3]
             ], //diagonal 2
 
         ];
@@ -164,6 +164,7 @@ class Board {
 
     removeEventListener() {
         $('.board').removeEventListener('click', this.listener);
+        this.listener = null;
     }
     emptyAvailable() {
 
