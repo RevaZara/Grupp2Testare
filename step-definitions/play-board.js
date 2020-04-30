@@ -259,7 +259,7 @@ module.exports = function() {
     });
 
     this.Given(/^set the currentPlayer property to 2 if it is 1 and to 1 if it is 2$/, function () {
-        expect(1).to.equal(2);
+        expect(1).to.equal(2, 'set the currentPlayer property');
     });
 
     this.Then(/^call the game's method tellTurn property with the currentPlayer property as an argument$/, function () {
