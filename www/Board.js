@@ -17,11 +17,15 @@ class Board {
     async makeMove(column) {
         column = +column
         console.log("make-move" + column)
-        if (column < 0 || column > 6)
+        if (column < 0 || column > 6) {
             throw new Error('column must be an integer between 0 and 6');
+        }
 
-        if (this.playInProgress === true)
+
+        if (this.playInProgress === true) {
             return null;
+        }
+
 
         //  The method should return false if the move cannot be done because the selected column is full.
         if (this.checkIfColumnFull(column, this.matrix)) {
@@ -47,7 +51,7 @@ class Board {
             }
         }
 
-        let checkResult = this.winCheck();
+        let checkResult = this.winCheck(); // false / object..winner-1,2,draw,  combo
         if (checkResult !== false) {
             //a) Call the removeEventListener
             this.removeEventListener();
@@ -107,19 +111,7 @@ class Board {
         for (let row = 0; row < 6; row++) {
             for (let col = 0; col < 7; col++) {
                 for (let w = 0; w < winOffset.length; w++) {
-
-                    //console.log("checking at " + row + " , " + col);
-                    //                    if (w === 0) {
-                    //                        console.log("checking horizontal |");
-                    //                    } else if (w === 1) {
-                    //                        console.log("checking vertical --");
-                    //                    } else if (w === 2) {
-                    //                        console.log("checking diagonal \\");
-                    //                    } else {
-                    //                        console.log("checking diagonal /");
-                    //                    }
                     let slots = winOffset[w].map(([r, c]) => this.matrix[row + r] && this.matrix[row + r][col + c]).join('');
-                    //  console.log(slots);
                     if (slots === '1111') {
                         myObject['winner'] = 1;
                         myObject['combo'] = winOffset[w].map(([r, c]) => [row + r, col + c]);
@@ -133,7 +125,7 @@ class Board {
             }
 
         }
-        if (!this.emptyAvailable()) {
+        if (!this.emptyAvailable()) { // true jab tak matrics main aik bhi 0 hy
             myObject['winner'] = "draw";
             return myObject;
         }
@@ -141,10 +133,7 @@ class Board {
     }
 
     markWin(combo) {
-        for (let i of combo) {
-          this.matrix[i[0]][i[1]] = 3;
-        }
-        this.render();
+        combo.map(([r, c]) => `.board > div:nth-child(${r * 7 + c + 1})`).forEach(x => $(x).classList.add('win'));
     }
 
     addEventListener() {
@@ -201,10 +190,7 @@ class Board {
                     div1.className = "red";
                 } else if (this.matrix[i][j] === 2) {
                     div1.className = "yellow";
-                } else if (this.matrix[i][j] === 3) {
-                    div1.className = "win";
                 }
-
                 $('.board').append(div1);
             }
         }
