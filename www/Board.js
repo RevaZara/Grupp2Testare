@@ -5,7 +5,7 @@ class Board {
         this.currentPlayer = 1;
         this.playInProgress = false;
         this.addEventListener();
-        this.render();
+        this.render(); 
         this.game.tellTurn(this.currentPlayer);
         //this.listener;
     }

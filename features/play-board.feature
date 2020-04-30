@@ -66,7 +66,7 @@ Scenario: Check if event listener is removed.
     Given that a game argument is not an instance of the Game class
     Then the error message "game must be an instance of Game" should be discarded  
 
-#   # 1.3 game's method tellTurn
+#   # 1.3 game's method tell turn
    Scenario: Properties should be set according to the api-specifications
      Given that a new game is created
      Then it should set the game with the value from the game argument
@@ -77,7 +77,7 @@ Scenario: Check if event listener is removed.
 
 # # 2 Klassen Board 'async makeMove(column)'>
   Scenario: The async method should receive the column argument, which should be an integer between 0 and 6. If this is not the case, the error message "column must be an integer between 0 and 6" should be thrown.
-    Given that the play in progress property is true
+    Given that the playInProgress property is true
     Then place the tray temporarily at the top of the column
      And call the render
      And remove the tray if it can fall further down
@@ -88,8 +88,8 @@ Scenario: Check if event listener is removed.
    And If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument
    And Call the game's method over using the winner property from winCheck's return value as an argument
    And Return true
-     And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
-     And call the game's method tell turn property with the currentPlayer property as an argument
+#     And set the currentPlayer property to 2 if it is 1 and to 1 if it is 2
+     And call the game's method tellTurn property with the currentPlayer property as an argument
      And set the playInProgress property to false
      And turn true
 
