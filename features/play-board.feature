@@ -141,33 +141,14 @@ Feature: Play Connect 4
 #    Given that an event listener / function is added
 #    Then events should be clicked to the element with the css class board in the DOM
 
-# # 6.2 Klassen Board 'addEventListener(2)'>
-# Scenario: Event listeners should detect which column the user has clicked on and call the makeMove method using this column as an argument.
-#    Given that event listeners detect a column the user has clicked on
-#    Then event listeners should call the makeMove method using this column as an argument
-#     #Examples:
-#      Given that a game is finished <won or fail>
-#      Then it should tell a message <result>
-#     #Examples:
-#       | finished <won or fail>  | a message <result>              |
-#       |          1              |          "Red won"              |
-#       |          2              |          "Green won"            |
-#       |          0              | "Error won black must be draw"  |
 
-# # 6.3 Klassen Board 'addEventListener(3)'>
-# Scenario: The event listener should be saved as a property named listener , so that it can be removed at a later time.
-#    Given that an event listener is saved as a property named listener
-#    Then it should be removed at a later time
+
 
 # # 6.4 Klassen Board 'addEventListener(4)'>
 # Scenario: The method should use the $ auxiliary method to obtain the correct elements in the DOM.
 #    Given that the $ auxiliary method is used
 #    Then it should obtain the correct elements in the DOM
 
-# # 7.1 Klassen Board 'removeEventListener(1)'>
-# Scenario: The method should remove the event listener stored in the listener property from the element with the css class board in the DOM.
-#    Given that an event listener is stored in the listener property
-#    Then it should been remove from the element with the css class board in the DOM
 
 # # 7.2 Klassen Board 'removeEventListener(2)'>
 # Scenario: The method should use the $ auxiliary method to obtain the correct elements in the DOM.
