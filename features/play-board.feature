@@ -33,6 +33,23 @@ Feature: Play Connect 4
     Given that a new Board is created
     Then it should render 42 divs as children of the board element
 
+
+  Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
+    Given that a game argument is not an instance of the Game class
+    Then the error message "game must be an instance of Game" should be discarded
+
+  Scenario: Check player 1 has div element corresponding to the position with css class red.
+    Given That a new game i started and first player has a tag on a position
+    Then Should only one element in the board have css class red
+    And Should no element in the board have css class yellow
+
+  Scenario: Check player 2 has div element corresponding to the position with css class yellow.
+    Given That a new game i started and first and secand player has a tag on a position
+    Then Should only one element in the board have css class yellow
+
+
+  # And Secand player has a tag on a position should one only one element have css class yellow
+
   # klass board addEventListener()
   Scenario: A element with css class board is clicked.
     Given that a user clicked in element with class board
@@ -44,22 +61,15 @@ Feature: Play Connect 4
     And Call method removEventListener
     And Check that the property listener have null value
 
+  Scenario: The method should receive the game argument which should be an instance of the Game class.
+    Given that a game argument is an instance of the Game class
+    Then the method should receive the game argument
+
   # klass board removEventListener()
   Scenario: Check if event listener is removed.
     Given That the method removEventListener is called
     Then Try to click on element with css class board
     And Funck makeMove should not be called
-
-  # # 1 Klassen Board 'constructor(game)'  >
-  #   # 1.1 addEventListener method
-  Scenario: The method should receive the game argument which should be an instance of the Game class.
-    Given that a game argument is an instance of the Game class
-    Then the method should receive the game argument
-
-  #   # 1.2 render method
-  Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
-    Given that a game argument is not an instance of the Game class
-    Then the error message "game must be an instance of Game" should be discarded
 
 
   # # 2 Klassen Board 'async makeMove(column)'>
@@ -98,12 +108,7 @@ Feature: Play Connect 4
 #    Given that no one has won and no draw has been made in the game
 #    Then it should return the value false
 
-# # 4.1 Klassen Board 'render(1)'>
-#   Scenario: The method should find the element with the css class board in the DOM and change the contents of this element to an html structure with 42 div- elements in a row.
-#   These correspond to the different positions on the board from the upper left corner to the lower right corner.
 
-#     Given that player 1 has a tag on a position
-#     Then the div element corresponding to the position should get the css class red
 
 # # 4.2 Klassen Board 'render(2)'>
 #     Given that player 2 has a tag on a position
@@ -134,23 +139,4 @@ Feature: Play Connect 4
 # # 5.3 Klassen Board 'markWin(combo3)'>
 # Scenario: To use the $ auxiliary method to obtain the correct elements in the DOM.
 #   Given that the game have the $ auxiliary method in the combo
-#    Then it should obtain the correct elements in the DOM
-
-# # 6.1 Klassen Board 'addEventListener(1)'>
-# Scenario: to add an event listener / function for click events to the element with the css class board in the DOM
-#    Given that an event listener / function is added
-#    Then events should be clicked to the element with the css class board in the DOM
-
-
-
-
-# # 6.4 Klassen Board 'addEventListener(4)'>
-# Scenario: The method should use the $ auxiliary method to obtain the correct elements in the DOM.
-#    Given that the $ auxiliary method is used
-#    Then it should obtain the correct elements in the DOM
-
-
-# # 7.2 Klassen Board 'removeEventListener(2)'>
-# Scenario: The method should use the $ auxiliary method to obtain the correct elements in the DOM.
-#    Given that an event listener is used
 #    Then it should obtain the correct elements in the DOM

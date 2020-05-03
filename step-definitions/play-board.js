@@ -2,20 +2,20 @@
 // (do this in each step-definition file in this project)
 require('./_include-all')();
 
-module.exports = function() {
+module.exports = function () {
     let board;
     let game;
     let removeEventListenerWasCalled = false;
     let startWasCalled = false;
-    
-//    klassen Borad 'constroctor'
-//    Scenario: Properties should be set according to the api-specifications
-//    Given that we create a new Board
-//    Then property game should get value from the constructor
-//    And the property matrix should have size six into seven, and zero value at each index
-//    And the property currentPlayer should have value 1
-//    And the property playInProgress should have the value false
-   
+
+    //    klassen Borad 'constroctor'
+    //    Scenario: Properties should be set according to the api-specifications
+    //    Given that we create a new Board
+    //    Then property game should get value from the constructor
+    //    And the property matrix should have size six into seven, and zero value at each index
+    //    And the property currentPlayer should have value 1
+    //    And the property playInProgress should have the value false
+
     this.Given(/^that we create a new Board$/, () => {
         game = new Game();
         board = new Board(game);
@@ -44,7 +44,7 @@ module.exports = function() {
         expect(board.playInProgress).to.equal(false, ' playInProgress should have the value false');
     })
 
-    
+
     //____________________________
 
     //   Klassen Board 'render'
@@ -72,22 +72,22 @@ module.exports = function() {
     });
     this.Then(/^A method makeMove should be colled with column nummber$/, function () {
         expect(board.makeMove(0)).to.not.equal(false, 'board.makeMove() is not with correct column nummber');
-    }); 
+    });
     //
     this.Given(/^That addeventlistener is called$/, function () {
-        board.addEventListener(); 
+        board.addEventListener();
     });
     this.Then(/^The event should be saved as a property named listener$/, function () {
-        expect(board.listener).to.not.equal(null, 'listener should have value');  
+        expect(board.listener).to.not.equal(null, 'listener should have value');
     });
     this.Then(/^Call method removEventListener$/, function () {
         board.removeEventListener();
     });
     this.Then(/^Check that the property listener have null value$/, function () {
-        expect(board.listener).to.equal(null, 'listener should not have value');  
+        expect(board.listener).to.equal(null, 'listener should not have value');
     });
 
-   // removEventListener
+    // removEventListener
     this.Given(/^That the method removEventListener is called$/, function () {
         board.removeEventListener();
     });
@@ -98,11 +98,11 @@ module.exports = function() {
         expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should not be called');
     });
 
-// # # 1 Klassen Board 'constructor(game)'  >
-// #   # 1.1 addEventListener method 
-//  Scenario: The method should receive the game argument which should be an instance of the Game class.
-//    Given that a game argument is an instance of the Game class
-//    Then the method should receive the game argument  
+    // # # 1 Klassen Board 'constructor(game)'  >
+    // #   # 1.1 addEventListener method 
+    //  Scenario: The method should receive the game argument which should be an instance of the Game class.
+    //    Given that a game argument is an instance of the Game class
+    //    Then the method should receive the game argument  
 
     this.Given(/^that a game argument is an instance of the Game class$/, function () {
         game = new Game();
@@ -112,10 +112,10 @@ module.exports = function() {
         expect(game.board).to.equal(game.board, 'a game argument is an instance of the Game class');
     });
 
-//#   # 1.2 render method
-// Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
-//   Given that a game argument is not an instance of the Game class
-//   Then the error message "game must be an instance of Game" should be discarded  
+    //#   # 1.2 render method
+    // Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
+    //   Given that a game argument is not an instance of the Game class
+    //   Then the error message "game must be an instance of Game" should be discarded  
     this.Given(/^that a game argument is not an instance of the Game class$/, function () {
         game = new Game();
         board = new Board(game);
@@ -123,15 +123,15 @@ module.exports = function() {
     this.Then(/^the error message "game must be an instance of Game" should be discarded$/, function () {
         expect(game.board).to.not.equal(game, 'a game argument is an instance of the Game class');
     });
-   
-//#   # 1.3 game's method tell turn
-//Scenario: Properties should be set according to the api-specifications
-// Given that a new game is created
-// Then it should set the game with the value from the game argument
-// And it should set matrix into an array of 6 elements
-// And each element should in turn be an array of 7 elements, each element having a value of 0
-// And it should set currentPlayer to value 1
-// And it should set playInProgress to the value false
+
+    //#   # 1.3 game's method tell turn
+    //Scenario: Properties should be set according to the api-specifications
+    // Given that a new game is created
+    // Then it should set the game with the value from the game argument
+    // And it should set matrix into an array of 6 elements
+    // And each element should in turn be an array of 7 elements, each element having a value of 0
+    // And it should set currentPlayer to value 1
+    // And it should set playInProgress to the value false
     this.Given(/^that a new game is created$/, () => {
         game = new Game();
         board = new Board(game);
@@ -147,11 +147,11 @@ module.exports = function() {
             expect(board.matrix[i].length).to.equal(7, 'in turn it must be an array of 7 elements');
             for (j = 0; j < board.matrix[i].length; j++) {
                 expect(board.matrix[i][j]).to.equal(0, 'each element should have a value of 0');
-     }
-    }
+            }
+        }
     });
 
-    this.Then(/^each element should in turn be an array of 7 elements, each element having a value of 0$/, () => {   
+    this.Then(/^each element should in turn be an array of 7 elements, each element having a value of 0$/, () => {
         expect(board.matrix.length).to.equal(6, 'it should matrix into an array of 6 elements');
         for (i = 0; i < board.matrix.length; i++) {
             expect(board.matrix[i].length).to.equal(7, 'in turn it must be an array of 7 elements');
@@ -169,25 +169,6 @@ module.exports = function() {
         expect(board.playInProgress).to.equal(false, ' playInProgress should have the value false');
     })
 
-//  # # 2 Klassen Board 'async makeMove(column)'>
-
-    class tellTurn extends Board {
-
-       removeEventListener() {
-
-            removeEventListenerWasCalled = true;
-        }
-
-           tellTurn() {
-
-            tellTurn = true;
-        }
-
-        start() {
-            startWasCalled = true;
-        }
-
-    }
 
 
     this.Given(/^that the playInProgress property is true$/, function () {
@@ -280,4 +261,45 @@ module.exports = function() {
         ).to.be.false;
     });
 
+    this.Given(/^That a new game i started and first player has a tag on a position$/, function () {
+        // Empty the contents of .board
+        $('.board').innerHTML = '';
+        // create a Game, it will create a Board
+        new Game();
+
+    });
+    this.Then(/^Should only one element in the board have css class red$/, function () {
+
+        $('.board > div:nth-child(12)').click();
+        let divsWithRedClass = $$('.board > .red').length;
+        expect(divsWithRedClass).to.equal(1,
+            'The element does not have css class red'
+        );
+    });
+    this.Then(/^Should no element in the board have css class yellow$/, function () {
+        let divsWithYellowClass = $$('.board > .yellow').length;
+        expect(divsWithYellowClass).to.equal(0,
+            'divs have css class yellow'
+        );
+    });
+
+
+
+    this.Given(/^That a new game i started and first and secand player has a tag on a position$/, function () {
+        // Empty the contents of .board
+        $('.board').innerHTML = '';
+        // create a Game, it will create a Board
+        new Game();
+
+        $('.board > div:nth-child(12)').click();
+    });
+    this.Then(/^Should only one element in the board have css class yellow$/, function () {
+
+        let divsWithYellowClass = $$('.board > .yellow').length;
+        expect(divsWithYellowClass).to.equal(1,
+            'divs have not css class yellow'
+        );
+    });
+
 }
+
