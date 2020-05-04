@@ -16,7 +16,6 @@ class Board {
 
     async makeMove(column) {
         column = +column
-        console.log("make-move" + column)
         if (column < 0 || column > 6) {
             throw new Error('column must be an integer between 0 and 6');
         }
