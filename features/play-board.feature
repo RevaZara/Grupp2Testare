@@ -47,8 +47,11 @@ Feature: Play Connect 4
     Given That a new game i started and first and secand player has a tag on a position
     Then Should only one element in the board have css class yellow
 
+  Scenario: Check that all divs in the board is empty
+    Given That new game is started and 42 div elements is created and in turn contains a div elemen
+    Then All div that is inside divs should be empty
 
-  # And Secand player has a tag on a position should one only one element have css class yellow
+
 
   # klass board addEventListener()
   Scenario: A element with css class board is clicked.
@@ -110,21 +113,10 @@ Feature: Play Connect 4
 
 
 
-# # 4.2 Klassen Board 'render(2)'>
-#     Given that player 2 has a tag on a position
-#     Then the div element corresponding to the position should get the css class red
 
 
 
-# # 4.4 Klassen Board 'render(4)'>
-#   Scenario:Each of the 42 div elements described above should in turn contain a div element. This should be empty.
-#     Given that each of the 42 div elements described above in turn contains a div element
-#     Then this should be empty
 
-# # 4.5 Klassen Board 'render(5)'>
-#   Scenario: The method should use the $ auxiliary method to obtain the correct elements in the DOM.
-#     Given that a $ auxiliary method is used
-#     Then it should obtain the correct elements in the DOM
 
 # # 5.1 Klassen Board 'markWin(combo1)'>
 # Scenario: find the four div elements corresponding to the positions specified in the combo and add the css class win to each of these div elements.

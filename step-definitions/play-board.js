@@ -301,5 +301,22 @@ module.exports = function () {
         );
     });
 
+    this.Given(/^That new game is started and 42 div elements is created and in turn contains a div elemen$/, function () {
+        // Empty the contents of .board
+        $('.board').innerHTML = '';
+        // create a Game, it will create a Board
+        new Game();
+    });
+    this.Then(/^All div that is inside divs should be empty$/, function () {
+        let innerHTML = '';
+        const divs = document.querySelectorAll(".board > div > div");
+        divs.forEach(div => {
+            innerHTML = innerHTML + div.innerHTML;
+        });
+
+        expect(innerHTML).to.equal('',
+            'divs is not empty'
+        );
+    });
 }
 
