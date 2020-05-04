@@ -24,7 +24,7 @@ module.exports = function () {
 
 
     this.Then(/^the current player is changed$/, () => {
-        expect(board.currentPlayer).to.equal(2, "game nay player change nhe kya");
+        expect(board.currentPlayer).to.equal(2, "the current player is not changed");
     })
 
     //  Scenario:  After making a move matrix will have last move information
@@ -32,7 +32,7 @@ module.exports = function () {
     //    When     player makes a move
     //    Then    the matrix will have last move information
     this.Then(/^the matrix will have last move information$/, () => {
-        expect(board.matrix[5][5]).to.equal(1, "game nay matrix ko theek nhe badla");
+        expect(board.matrix[5][5]).to.equal(1, "matrix is not updated as it should be");
     })
 
     //Scenario: after making a move the message will be changeed
