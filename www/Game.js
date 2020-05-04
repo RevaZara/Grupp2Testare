@@ -30,6 +30,10 @@ class Game {
                 throw (new Error('won must be “draw”, 1 or 2'));
             }
         }
+        let button = document.createElement('button');
+        button.innerHTML = "PLAY AGAIN";
+        button.className ="again";
+        $(".message").append(button);
     }
 
     addEventListener() {
