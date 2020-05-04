@@ -81,7 +81,7 @@ module.exports = function() {
 
     this.Then(/^it should tell right "([^"]*)"$/, function(message) {
         let value = $(".message").innerHTML;
-        expect(value).to.equal(message);
+        expect(value).to.have.string(message);
     });
 
     //_________________________________
@@ -110,7 +110,7 @@ module.exports = function() {
 
     this.Then(/^it should tell the "([^"]*)"$/, function(arg1) {
         let value = $(".message").innerHTML;
-        expect(value).to.equal(arg1);
+        expect(value).to.have.string(arg1);
     });
 
  //_________________________________
