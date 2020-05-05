@@ -262,7 +262,7 @@ module.exports = function () {
     });
 
     this.Given(/^That a new game i started and first player has a tag on a position$/, function () {
-        // Empty the contents of .board
+        // Empty the contents of board
         $('.board').innerHTML = '';
         // create a Game, it will create a Board
         new Game();
