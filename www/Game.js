@@ -1,5 +1,7 @@
 class Game {
     constructor() {
+        this.playerName1 = this.inputName(1);
+        this.playerName2 = this.inputName(2);
         this.addEventListener();
         this.start();
     }
@@ -10,22 +12,30 @@ class Game {
     tellTurn(player) {
         player = +player
         if (player === 1 || player === 2) {
-            $(".message").innerHTML = player == 1 ? "Röds tur…" : "Guls tur…";
+            $(".message").innerHTML = player == 1 ? this.playerName1 + ' tur.' : this.playerName2 + ' tur.';
         } else {
             throw new Error('player must be 1 or 2');
         }
     }
 
-
+    inputName(palyerNumber) {
+        try { // Bara för att prompt inte funkar när vi kör tester
+            let name = prompt('Input player ' + palyerNumber + ' name');
+            return name;
+        }
+        catch {
+            return 'Player ' + palyerNumber
+        }
+    }
     over(won) {
         if (won === "draw") {
             $(".message").innerHTML = "Det blev oavgjort!";
         } else {
             won = +won
             if (won === 1) {
-                $(".message").innerHTML = "Röd vann!";
+                $(".message").innerHTML = this.playerName1 + ' vann!';
             } else if (won === 2) {
-                $(".message").innerHTML = "Gul vann!";
+                $(".message").innerHTML = this.playerName2 + ' vann!';
             } else {
                 throw (new Error('won must be “draw”, 1 or 2'));
             }
