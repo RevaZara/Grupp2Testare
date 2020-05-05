@@ -269,11 +269,10 @@ module.exports = function () {
 
     });
     this.Then(/^Should only one element in the board have css class red$/, function () {
-
         $('.board > div:nth-child(12)').click();
         let divsWithRedClass = $$('.board > .red').length;
         expect(divsWithRedClass).to.equal(1,
-            'The element does not have css class red'
+            'There is no element with css class red'
         );
     });
     this.Then(/^Should no element in the board have css class yellow$/, function () {
@@ -283,21 +282,18 @@ module.exports = function () {
         );
     });
 
-
-
     this.Given(/^That a new game i started and first and secand player has a tag on a position$/, function () {
         // Empty the contents of .board
         $('.board').innerHTML = '';
         // create a Game, it will create a Board
         new Game();
-
-        $('.board > div:nth-child(12)').click();
     });
     this.Then(/^Should only one element in the board have css class yellow$/, function () {
-
+        $('.board > div').click();
+        $('.board > div:nth-child(12)').click();
         let divsWithYellowClass = $$('.board > .yellow').length;
         expect(divsWithYellowClass).to.equal(1,
-            'divs have not css class yellow'
+            'There is no element with css class yellow'
         );
     });
 
