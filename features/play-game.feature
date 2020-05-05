@@ -31,9 +31,9 @@ Feature: Play Connect 4
     Then it should tell right <message>
 
     Examples:
-      | player | message      |
-      | 1      | "Röds tur…" |
-      | 2      | "Guls tur…" |
+      | player | message         |
+      | 1      | "Player 1 tur." |
+      | 2      | "Player 2 tur." |
 
 
   # Klassen Game 'tellturn' >
@@ -60,8 +60,8 @@ Feature: Play Connect 4
 
     Examples:
       | winner | result               |
-      | 1      | "Röd vann!"          |
-      | 2      | "Gul vann!"          |
+      | 1      | "Player 1 vann!"     |
+      | 2      | "Player 2 vann!"     |
       | "draw" | "Det blev oavgjort!" |
 
 
