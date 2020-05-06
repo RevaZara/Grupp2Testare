@@ -44,10 +44,9 @@ module.exports = function () {
    });
 
   this.Then(/^it should obtain the correct elements in the DOM$/, () => {
-    expect(game.board).to.not.equal(null, 'game.board is not an instance of Board');
-//      expect(markWinWasCalled,
-//        'The method start was called by the constructor in Board'
-//      ).to.be.true;
+      expect(markWinWasCalled,
+        'The method start was called by the constructor in Board'
+      ).to.be.true;
   
     });
 
