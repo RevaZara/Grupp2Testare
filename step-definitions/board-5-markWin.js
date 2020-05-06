@@ -29,7 +29,7 @@ module.exports = function () {
     $('.message').click();
   })
   this.Then(/^it should add the css class win to each of these div elements$/, () => {
-    expect(game.board).to.not.equal(null, 'it should add the css class win');
+    expect(game.board).to.not.equal(null, 'the css class win should be addedto each of these div elements');
   })
 
   //# # 5.3 Klassen Board 'markWin(combo3)'>
@@ -37,15 +37,13 @@ module.exports = function () {
   //    Given that the method is the $ auxiliary method in the combo
   //    Then it should obtain the correct elements in the DOM
   this.Given(/^that the auxiliary method in the combo is used$/, () => {
-            board.markWinWasCalled = markWinWasCalled;
-            this.markWinWasCalled = true;  
+            board.markWinWasCalled = markWinWasCalled; 
              $('.message').click();
            
    });
-
   this.Then(/^it should obtain the correct elements in the DOM$/, () => {
       expect(markWinWasCalled,
-        'The method start was called by the constructor in Board'
+        'the correct elements should be obtained in the DOM'
       ).to.be.true;
   
     });
