@@ -7,8 +7,7 @@ module.exports = function () {
 
   let board;
   let game;
-  let removeEventListenerWasCalled = false;
-  let startWasCalled = false;
+
   //   Klassen Board 'render'
   //   Scenario: A board adds 42 divs to the .board element
   //   Given that a new Board is created
@@ -28,6 +27,7 @@ module.exports = function () {
       expectedNumberOfDivs + ' divs were not created as children of the .board element'
     );
   });
+
   //#   # 1.2 render method
   // Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
   //   Given that a game argument is not an instance of the Game class
@@ -39,6 +39,8 @@ module.exports = function () {
   this.Then(/^the error message "game must be an instance of Game" should be discarded$/, function () {
     expect(game.board).to.not.equal(game, 'a game argument is an instance of the Game class');
   });
+
+
   this.Given(/^That a new game i started and first player has a tag on a position$/, function () {
     // Empty the contents of board
     $('.board').innerHTML = '';
