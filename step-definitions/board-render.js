@@ -28,18 +28,8 @@ module.exports = function () {
     );
   });
 
-  //#   # 1.2 render method
-  // Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
-  //   Given that a game argument is not an instance of the Game class
-  //   Then the error message "game must be an instance of Game" should be discarded  
-  this.Given(/^that a game argument is not an instance of the Game class$/, function () {
-    game = new Game();
-    board = new Board(game);
-  });
-  this.Then(/^the error message "game must be an instance of Game" should be discarded$/, function () {
-    expect(game.board).to.not.equal(game, 'a game argument is an instance of the Game class');
-  });
-
+  game = new Game();
+  board = new Board(game);
 
   this.Given(/^That a new game i started and first player has a tag on a position$/, function () {
     // Empty the contents of board

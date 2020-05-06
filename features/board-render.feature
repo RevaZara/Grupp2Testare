@@ -3,17 +3,10 @@ Feature: Play Connect 4
   I want to play the game on my screen with my friends
   So that I don't need to buy it.
 
-
-
   # Klassen Board 'render'>
   Scenario: A board adds 42 divs to the .board element
     Given that a new Board is created
     Then it should render 42 divs as children of the board element
-
-
-  Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
-    Given that a game argument is not an instance of the Game class
-    Then the error message "game must be an instance of Game" should be discarded
 
   Scenario: Check player 1 has div element corresponding to the position with css class red.
     Given That a new game i started and first player has a tag on a position
