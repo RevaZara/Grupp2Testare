@@ -41,7 +41,7 @@ module.exports = function () {
     //  Then    the message will be Gul tur
     this.Then(/^the message will be Gul tur$/, () => {
         let x = $('.message').innerHTML;
-        expect(x).to.equal("Guls tur…");
+        expect(x).to.equal("Player 2 tur.");
     })
 
 
@@ -60,7 +60,7 @@ module.exports = function () {
     // Given   the game is in progress
     // When    both players makes a move
     // Then    the message should be rod tur
-    
+
     this.When(/^both players makes a move$/, async function () {
         await board.makeMove(1);
         await board.makeMove(2);
@@ -68,7 +68,7 @@ module.exports = function () {
     })
     this.Then(/^the message should be rod tur$/, () => {
         let x = $(".message").innerHTML
-        expect(x).to.equal("Röds tur…");
+        expect(x).to.equal("Player 1 tur.");
 
     })
 

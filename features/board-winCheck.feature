@@ -13,8 +13,3 @@ Feature: Play Connect 4
     When    no more slots are available
     Then    than it should say draw
 
-  Scenario: If game is not done, it must return false
-    Given   game is in progress
-    Then    the method should return the value false
-
-

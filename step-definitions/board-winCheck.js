@@ -55,6 +55,12 @@ module.exports = function () {
     expect(result.winner).to.equal("draw");
   });
 
+  //  Scenario: If game is not done, it must return false
+  //      Given   game is in progress
+  //      Then    the method should return the value false
+  //
+
+
   this.Then(/^the method should return the value false$/, function () {
     let result = board.winCheck();
     console.log(result);
