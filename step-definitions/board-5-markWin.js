@@ -36,34 +36,19 @@ module.exports = function () {
   // Scenario: To use the $ auxiliary method to obtain the correct elements in the DOM.
   //    Given that the method is the $ auxiliary method in the combo
   //    Then it should obtain the correct elements in the DOM
-    this.Given(/^that a new game has the $ auxiliary method in the combo$/, () => {
-  //        game = new Game();
-  //       board = new Board(game);
-         $('.method').click();
-    });    
-  //        method = new Method();
-  // $('.board').innerHTML = '';
-  //   $('.board').innerHTML = '';
-  //  new Method();
-  //        method.auxiliary ($);
-  //      board.markWinWasCalled();
-  //     $('.method').click();
- //   if (auxiliarymethod.combo == "$") {
- //     this.markWin(checkResult.combo);
- //     return true;
-    //$('.board > div:nth-child(2)').click();
-    //$('.board').innerHTML = '';
-    //new Game($);
- //    expect(markWinWasCalled,
- //      'the method is the $ auxiliary method in the combo'
- //   ).to.be.true;
- //   $('.message').click();
+  this.Given(/^that the auxiliary method in the combo is used$/, () => {
+            board.markWinWasCalled = markWinWasCalled;
+            this.markWinWasCalled = true;  
+             $('.message').click();
+           
+   });
 
   this.Then(/^it should obtain the correct elements in the DOM$/, () => {
-      expect(markWinWasCalled,
-        'The method start was called by the constructor in Board'
-      ).to.be.true;
+    expect(game.board).to.not.equal(null, 'game.board is not an instance of Board');
+//      expect(markWinWasCalled,
+//        'The method start was called by the constructor in Board'
+//      ).to.be.true;
   
-  });
+    });
 
   }

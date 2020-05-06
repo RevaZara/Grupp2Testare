@@ -15,5 +15,5 @@ Feature: Play Connect 4
 
 # # 5.3 Klassen Board 'markWin(combo3)'>
  Scenario: To use the $ auxiliary method method in the comboto obtain the correct elements in the DOM.
-#   Given that a new game has the $ auxiliary method in the combo
+   Given that the auxiliary method in the combo is used
    Then it should obtain the correct elements in the DOM
