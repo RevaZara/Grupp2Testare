@@ -3,6 +3,8 @@
 require('./_include-all')();
 
 module.exports = function () {
+    this.After(() => fixNoSuchWindowError(driver));
+
     let board;
     let game;
     let removeEventListenerWasCalled = false;
@@ -282,7 +284,6 @@ module.exports = function () {
         );
     });
 
-    this.After(() => fixNoSuchWindowError(driver));
 
     this.When(/^The players play the first two moves in a new game$/, async function () {
         await board.makeMove(3); // red player makes a move
