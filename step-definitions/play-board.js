@@ -50,37 +50,6 @@ module.exports = function () {
     //____________________________
 
 
-    // addeventlensner 
-    this.Given(/^that a user clicked in element with class board$/, async function () {
-        await board.makeMove(3);
-    });
-    this.Then(/^A method makeMove should be colled with column nummber$/, function () {
-        expect(board.makeMove(0)).to.not.equal(false, 'board.makeMove() is not with correct column nummber');
-    });
-    //
-    this.Given(/^That addeventlistener is called$/, function () {
-        board.addEventListener();
-    });
-    this.Then(/^The event should be saved as a property named listener$/, function () {
-        expect(board.listener).to.not.equal(null, 'listener should have value');
-    });
-    this.Then(/^Call method removEventListener$/, function () {
-        board.removeEventListener();
-    });
-    this.Then(/^Check that the property listener have null value$/, function () {
-        expect(board.listener).to.equal(null, 'listener should not have value');
-    });
-
-    // removEventListener
-    this.Given(/^That the method removEventListener is called$/, function () {
-        board.removeEventListener();
-    });
-    this.Then(/^Try to click on element with css class board$/, async function () {
-        await board.makeMove(6);
-    });
-    this.Then(/^Funck makeMove should not be called$/, function () {
-        expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should not be called');
-    });
 
     // # # 1 Klassen Board 'constructor(game)'  >
     // #   # 1.1 addEventListener method 
@@ -88,15 +57,19 @@ module.exports = function () {
     //    Given that a game argument is an instance of the Game class
     //    Then the method should receive the game argument  
 
-    this.Given(/^that a game argument is an instance of the Game class$/, function () {
+
+
+
+    // Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
+    //   Given that a game argument is not an instance of the Game class
+    //   Then the error message "game must be an instance of Game" should be discarded  
+    this.Given(/^that a game argument is not an instance of the Game class$/, function () {
         game = new Game();
         board = new Board(game);
     });
-    this.Then(/^the method should receive the game argument$/, function () {
-        expect(game.board).to.equal(game.board, 'a game argument is an instance of the Game class');
+    this.Then(/^the error message "game must be an instance of Game" should be discarded$/, function () {
+        expect(game.board).to.not.equal(game, 'a game argument is an instance of the Game class');
     });
-
-
 
     //#   # 1.3 game's method tell turn
     //Scenario: Properties should be set according to the api-specifications
