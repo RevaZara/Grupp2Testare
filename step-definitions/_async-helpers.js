@@ -8,8 +8,8 @@ Object.defineProperty(Promise.prototype, 'throwCheck', {
   }
 });
 
-// Remove annoying "NoSuchWindowError" that phantom.js might otherwise
-// throw if we use async steps (when not using the Selenium part of
+// Remove annoying "NoSuchWindowError" that phantom.js might otherwise 
+// throw if we use async steps (when not using the Selenium part of 
 // selenium - cucumber.js, i.e. just using the module for unit testing)
 global.fixNoSuchWindowError = driver => {
   driver.close = () => {
