@@ -76,8 +76,8 @@ module.exports = function () {
         game = new Game();
         game.start();
     });
-    this.When(/^the player is (\d+)$/, function (arg1) {
-        game.tellTurn(arg1);
+    this.When(/^the player is (\d+)$/, function (player) {
+        game.tellTurn(player);
     });
 
     this.Then(/^it should tell right "([^"]*)"$/, function (message) {
