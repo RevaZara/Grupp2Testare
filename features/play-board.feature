@@ -44,7 +44,7 @@ Feature: Play Connect 4
     And Should no element in the board have css class yellow
 
   Scenario: Check player 2 has div element corresponding to the position with css class yellow.
-    Given That a new game i started and first and secand player has a tag on a position
+    Given The players play the first two moves in a new game
     Then Should only one element in the board have css class yellow
 
   Scenario: Check that all divs in the board is empty

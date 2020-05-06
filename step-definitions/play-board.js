@@ -282,18 +282,16 @@ module.exports = function () {
         );
     });
 
-    this.Given(/^That a new game i started and first and secand player has a tag on a position$/, function () {
-        // Empty the contents of .board
-        $('.board').innerHTML = '';
-        // create a Game, it will create a Board
-        new Game();
-    });
+    this.After(() => fixNoSuchWindowError(driver));
+
+    this.When(/^The players play the first two moves in a new game$/, async function () {
+        await board.makeMove(3); // red player makes a move
+        await board.makeMove(3); // yellow player makes a move
+    })
     this.Then(/^Should only one element in the board have css class yellow$/, function () {
-        $('.board > div').click();
-        $('.board > div:nth-child(12)').click();
-        let divsWithYellowClass = $$('.board > .yellow').length;
-        expect(divsWithYellowClass).to.equal(1,
-            'There is no element with css class yellow'
+        let divsWithYellowClass = $$('.board > .yellow');
+        expect(divsWithYellowClass.length).to.equal(1,
+            'There is not exactly ONE element with the css class yellow after the yellow player has played one move'
         );
     });
 
