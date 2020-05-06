@@ -3,6 +3,8 @@
 require('./_include-all')();
 
 module.exports = function () {
+    this.After(() => fixNoSuchWindowError(driver));
+
 
     let game;
     let addEventListenerWasCalled = false;
