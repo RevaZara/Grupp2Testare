@@ -69,8 +69,8 @@ module.exports = function () {
         );
     });
     // addeventlensner 
-    this.Given(/^that a user clicked in element with class board$/, function () {
-        $('.board > div:nth-child(2)').click();
+    this.Given(/^that a user clicked in element with class board$/, async function () {
+        await board.makeMove(3);
     });
     this.Then(/^A method makeMove should be colled with column nummber$/, function () {
         expect(board.makeMove(0)).to.not.equal(false, 'board.makeMove() is not with correct column nummber');
@@ -93,8 +93,8 @@ module.exports = function () {
     this.Given(/^That the method removEventListener is called$/, function () {
         board.removeEventListener();
     });
-    this.Then(/^Try to click on element with css class board$/, function () {
-        $('.board > div:nth-child(3)').click();
+    this.Then(/^Try to click on element with css class board$/, async function () {
+        await board.makeMove(6);
     });
     this.Then(/^Funck makeMove should not be called$/, function () {
         expect(board.makeMove(0)).to.not.equal(true, 'board.makeMove() should not be called');
@@ -270,8 +270,8 @@ module.exports = function () {
         new Game();
 
     });
-    this.Then(/^Should only one element in the board have css class red$/, function () {
-        $('.board > div:nth-child(12)').click();
+    this.Then(/^Should only one element in the board have css class red$/, async function () {
+        await board.makeMove(3);
         let divsWithRedClass = $$('.board > .red').length;
         expect(divsWithRedClass).to.equal(1,
             'There is no element with css class red'
