@@ -31,9 +31,9 @@ Feature: Play Connect 4
     Then it should tell right <message>
 
     Examples:
-      | player | message         |
-      | 1      | "Player 1 tur." |
-      | 2      | "Player 2 tur." |
+      | player | message            |
+      | 1      | "Player 1s tur..." |
+      | 2      | "Player 2s tur..." |
 
 
   # Klassen Game 'tellturn' >

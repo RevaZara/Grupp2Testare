@@ -41,7 +41,7 @@ module.exports = function () {
     //  Then    the message will be Gul tur
     this.Then(/^the message will be Gul tur$/, () => {
         let x = $('.message').innerHTML;
-        expect(x).to.equal("Player 2 tur.");
+        expect(x).to.equal("Player 2s tur...");
     })
 
 
@@ -68,7 +68,7 @@ module.exports = function () {
     })
     this.Then(/^the message should be rod tur$/, () => {
         let x = $(".message").innerHTML
-        expect(x).to.equal("Player 1 tur.");
+        expect(x).to.equal("Player 1s tur...");
 
     })
 

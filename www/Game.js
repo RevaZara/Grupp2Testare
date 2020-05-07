@@ -2,6 +2,12 @@ class Game {
     constructor() {
         this.playerName1 = this.inputName(1);
         this.playerName2 = this.inputName(2);
+        if (this.playerName1 === null) {
+            this.playerName1 = "Röd"
+        }
+        if (this.playerName2 === null) {
+            this.playerName2 = "Gul"
+        }
         this.addEventListener();
         this.start();
     }
@@ -12,7 +18,11 @@ class Game {
     tellTurn(player) {
         player = +player
         if (player === 1 || player === 2) {
-            $(".message").innerHTML = player == 1 ? this.playerName1 + '´s tur.' : this.playerName2 + '´s tur.';
+            let playerName = player == 1 ? this.playerName1 : this.playerName2;
+            if (playerName[playerName.length - 1] !== 's') {
+                playerName = playerName + 's'
+            }
+            $(".message").innerHTML = playerName + ' tur...'
         } else {
             throw new Error('player must be 1 or 2');
         }

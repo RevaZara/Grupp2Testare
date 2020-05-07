@@ -14,7 +14,7 @@ Feature: Play Connect 4
     Then   the matrix will have last move information
 
 
-  Scenario: after making a move the message will be changeed
+  Scenario: after making a move the message will be changed
     Given   the game is in progress
     When    player makes a move
     Then    the message will be Gul tur
