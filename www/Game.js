@@ -20,7 +20,7 @@ class Game {
 
     inputName(palyerNumber) {
         try { // Bara för att prompt inte funkar när vi kör tester
-            let name = prompt('Input player ' + palyerNumber + ' name');
+            let name = prompt('Mata in spelare' + palyerNumber + ' namn');
             return name;
         }
         catch {
@@ -41,14 +41,17 @@ class Game {
             }
         }
         let button = document.createElement('button');
-        button.innerHTML = "PLAY AGAIN";
-        button.className ="again";
+        button.innerHTML = "Spela igen";
+        button.className = "again";
         $(".message").append(button);
+
     }
 
     addEventListener() {
         $('.message').addEventListener('click', e => {
             if (e.target.closest('.again')) {
+                sleep(100);
+                location.reload();
                 this.start();
             }
         });
