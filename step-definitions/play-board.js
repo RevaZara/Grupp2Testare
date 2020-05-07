@@ -50,16 +50,6 @@ module.exports = function () {
     //____________________________
 
 
-
-    // # # 1 Klassen Board 'constructor(game)'  >
-    // #   # 1.1 addEventListener method 
-    //  Scenario: The method should receive the game argument which should be an instance of the Game class.
-    //    Given that a game argument is an instance of the Game class
-    //    Then the method should receive the game argument  
-
-
-
-
     // Scenario: If a game argument is not an instance of the Game class, the error message "game must be an instance of Game" should be discarded.
     //   Given that a game argument is not an instance of the Game class
     //   Then the error message "game must be an instance of Game" should be discarded  
@@ -115,102 +105,6 @@ module.exports = function () {
     this.Then(/^it should set playInProgress to the value false$/, () => {
         expect(board.playInProgress).to.equal(false, ' playInProgress should have the value false');
     })
-
-
-
-    this.Given(/^that the playInProgress property is true$/, function () {
-        this.currentPlayer = 1;
-        this.playInProgress = false;
-        game = new Game();
-        board = new Board(game);
-
-    });
-
-    this.Then(/^place the tray temporarily at the top of the column$/, function () {
-        expect(removeEventListenerWasCalled,
-            'The method RemoveEventListener was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Then(/^call the render$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Then(/^remove the tray if it can fall further down$/, function () {
-        expect(removeEventListenerWasCalled,
-            'The method RemoveEventListener was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Then(/^call the asynchronous sleep aid method to pause for 50 ms$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Given(/^if possible: move the tray one step down in the column and repeat from step 3$/, function () {
-        expect(removeEventListenerWasCalled,
-            'The method RemoveEventListener was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Then(/^call the winCheck and if it returns something truthy$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Then(/^Call the removeEventListener$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Given(/^If winCheck returned an item of property combo then you should approach Markwin called with combo property from winCheck as inargument$/, function () {
-        expect(removeEventListenerWasCalled,
-            'The method RemoveEventListener was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Then(/^Call the game's method over using the winner property from winCheck's return value as an argument$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });;
-
-    this.Then(/^Return true$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Given(/^set the currentPlayer property to 2 if it is 1 and to 1 if it is 2$/, function () {
-        expect(1).to.equal(2, 'set the currentPlayer property');
-    });
-
-    this.Then(/^call the game's method tellTurn property with the currentPlayer property as an argument$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-    this.Given(/^set the playInProgress property to false$/, function () {
-        expect(startWasCalled,
-            'the playInProgress property'
-        ).to.be.false;
-    });
-
-    this.Then(/^turn true$/, function () {
-        expect(startWasCalled,
-            'The method start was called by the constructor in Board'
-        ).to.be.false;
-    });
-
-
-
-
 
 }
 
