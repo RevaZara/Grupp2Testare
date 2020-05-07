@@ -12,7 +12,7 @@ class Game {
     tellTurn(player) {
         player = +player
         if (player === 1 || player === 2) {
-            $(".message").innerHTML = player == 1 ? this.playerName1 + ' tur.' : this.playerName2 + ' tur.';
+            $(".message").innerHTML = player == 1 ? this.playerName1 + '´s tur.' : this.playerName2 + '´s tur.';
         } else {
             throw new Error('player must be 1 or 2');
         }
